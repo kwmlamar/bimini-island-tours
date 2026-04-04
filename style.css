@@ -968,14 +968,20 @@ section {
         padding: 6rem 0;
     }
 
+    .hero-wrapper {
+        padding: 0 !important;
+        height: 100dvh;
+    }
+
     /* Hero Responsive - Full Screen Immersive */
     .hero-card {
         width: 100% !important;
-        height: 100dvh;
+        height: 100dvh !important;
         padding: 0 1.5rem;
         border-radius: 0;
         justify-content: center;
         margin: 0; /* Remove any side margins */
+        background-attachment: scroll; /* Better for mobile performance */
     }
 
     .hero-inner {
