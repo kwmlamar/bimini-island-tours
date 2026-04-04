@@ -953,9 +953,14 @@ section {
         display: none; /* Prefer dots on mobile */
     }
 
-    .about-grid {
+    .dual-layout {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .about-image {
+        display: none;
     }
 }
 
