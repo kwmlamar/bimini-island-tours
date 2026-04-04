@@ -1008,12 +1008,16 @@ section {
     }
 
     .hero-content .serif-title {
-        font-size: 3rem;
+        font-size: 3.8rem;
     }
 
     .hero-content .italic-title {
         max-width: 100%;
-        font-size: 1.1rem;
+        font-size: 1.25rem;
+    }
+
+    .hero-content .quote-text {
+        font-size: 1.2rem;
     }
 
     .btn-group {
@@ -1129,7 +1133,7 @@ section {
 
 @media (max-width: 480px) {
     .hero-content .serif-title {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
 
     .serif-title {
