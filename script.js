@@ -151,6 +151,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => revealObserver.observe(el));
 
+        // Add Swipe Support for Gallery
+        let galleryTouchStartX = 0;
+        let galleryTouchEndX = 0;
+
+        gallerySlider.addEventListener('touchstart', e => {
+            galleryTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        gallerySlider.addEventListener('touchend', e => {
+            galleryTouchEndX = e.changedTouches[0].screenX;
+            const swipeDistance = galleryTouchStartX - galleryTouchEndX;
+            if (Math.abs(swipeDistance) > 50) {
+                if (swipeDistance > 0) {
+                    // Swiped Left
+                    if (currentIndex < allCards.length - 1) {
+                        currentIndex++;
+                        updateGallery(true);
+                    }
+                } else {
+                    // Swiped Right
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateGallery(true);
+                    }
+                }
+            }
+        }, { passive: true });
+
         // Initialize
         window.addEventListener('resize', () => updateGallery(false));
         updateGallery(false);
@@ -192,5 +220,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 showReview(currentReview);
             });
         });
+
+        // Add Swipe Support for Reviews
+        const reviewContainer = document.querySelector('.review-card-wrapper');
+        if (reviewContainer) {
+            let reviewTouchStartX = 0;
+            let reviewTouchEndX = 0;
+
+            reviewContainer.addEventListener('touchstart', e => {
+                reviewTouchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            reviewContainer.addEventListener('touchend', e => {
+                reviewTouchEndX = e.changedTouches[0].screenX;
+                const swipeDistance = reviewTouchStartX - reviewTouchEndX;
+                if (Math.abs(swipeDistance) > 50) {
+                    if (swipeDistance > 0) {
+                        // Swiped Left
+                        currentReview = (currentReview + 1) % reviewSlides.length;
+                    } else {
+                        // Swiped Right
+                        currentReview = (currentReview - 1 + reviewSlides.length) % reviewSlides.length;
+                    }
+                    showReview(currentReview);
+                }
+            }, { passive: true });
+        }
     }
 });
