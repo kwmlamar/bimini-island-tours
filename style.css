@@ -162,10 +162,7 @@ a {
     width: calc(100% - (var(--hero-padding) * 2));
     max-width: 2000px;
     height: calc(100% - (var(--hero-padding) * 2)); /* Height relative to the wrapper height */
-    background-color: #f9f9f7; /* Matches everything else for seamlessness */
-    background-image: url('images/hero.png');
-    background-size: cover;
-    background-position: center;
+    background-color: #111; /* Dark fallback while video loads */
     border-radius: 40px; /* Sharper, more modern corners */
     overflow: hidden;
     display: flex;
