@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===== GALLERY PAGE LIGHTBOX =====
-    const galleryItems  = document.querySelectorAll('.gallery-page-item');
+    const galleryItems  = document.querySelectorAll('.gitem');
     const lightbox      = document.getElementById('lightbox');
     const lightboxImg   = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
