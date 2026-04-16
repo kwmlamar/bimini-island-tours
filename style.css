@@ -2341,3 +2341,9 @@ a {
     .gallery-luxe .gitem:nth-child(7) { grid-column: span 1; }
     .gallery-luxe .gitem:nth-child(12) { grid-column: span 1; grid-row: span 1; }
 }
+
+.rolle-img {
+    object-fit: contain !important;
+    background-color: #f8fafc; /* Match a clean island background or light grey */
+    padding: 1rem; /* Provide some breathing room for the 'zoom out' effect */
+}
