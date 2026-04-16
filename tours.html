@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Tours - Bimini Island Tours</title>
+    <meta name="description" content="Browse all Bimini Island Tours — island heritage, snorkeling, blue holes, beaches, and more. Small groups, led by a local. Book via WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="images/logo.avif" alt="Bimini Island Tours" class="mobile-menu-logo">
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tours.html">Tours</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="https://wa.me/12424730233?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20tour%20with%20Bimini%20Island%20Tours" class="btn-tour-cta">Check Availability</a>
+        </div>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header" id="pageHeader">
+        <div class="container page-nav">
+            <a href="index.html">
+                <img src="images/logo.avif" alt="Bimini Island Tours" class="page-nav-logo">
+            </a>
+            <ul class="page-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tours.html" class="active">Tours</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="https://wa.me/12424730233?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20tour" class="btn btn-tour-cta btn-sm">Check Availability</a>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <span class="eyebrow">Bimini Island Tours</span>
+            <h1 class="serif-title" style="text-transform:none;">Our <span class="italic-title-inline">Tours</span></h1>
+            <p>Every tour is led by Max — a native Biminite who loves sharing his island with the world.</p>
+        </div>
+    </section>
+
+    <!-- TOURS DETAIL GRID -->
+    <section class="tours-page-section">
+        <div class="container">
+            <div class="tours-page-grid">
+
+                <!-- Tour 1: Island Heritage -->
+                <div class="tour-card-lg reveal-up">
+                    <div class="tour-card-image">
+                        <img src="images/gallery5.avif" alt="Bimini Island Heritage Tour">
+                        <div class="tour-img-overlay"></div>
+                    </div>
+                    <div class="tour-card-lg-body">
+                        <h3>Island Heritage Tour</h3>
+                        <p class="tour-desc">Bimini is one of the oldest settled islands in the Bahamas, and Max knows every corner of its history. Walk through local neighborhoods, visit iconic landmarks, and hear stories passed down through generations of islanders.</p>
+                        <ul class="tour-includes">
+                            <li>Historic landmarks and sites</li>
+                            <li>Local neighborhoods and community</li>
+                            <li>Bahamian cultural insights</li>
+                            <li>Stories only a native can tell</li>
+                            <li>Personalized commentary throughout</li>
+                        </ul>
+                        <div class="tour-meta" style="margin-bottom:1.75rem;">
+                            <span class="tour-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                3–4 Hours
+                            </span>
+                            <span class="tour-badge">Local Culture</span>
+                            <span class="tour-badge">Small Groups</span>
+                        </div>
+                        <a href="https://wa.me/12424730233?text=Hi%2C%20I'd%20like%20to%20check%20availability%20for%20the%20Island%20Heritage%20Tour" class="btn btn-tour-cta">Check Availability</a>
+                    </div>
+                </div>
+
+                <!-- Tour 2: Snorkeling -->
+                <div class="tour-card-lg reveal-up delay-100">
+                    <div class="tour-card-image">
+                        <img src="images/gallery6.avif" alt="Snorkeling and Sea Life Tour">
+                        <div class="tour-img-overlay"></div>
+                    </div>
+                    <div class="tour-card-lg-body">
+                        <h3>Snorkeling & Sea Life</h3>
+                        <p class="tour-desc">Bimini sits on the edge of the Gulf Stream, making it one of the best snorkeling destinations in the Bahamas. Explore vibrant reefs, encounter tropical marine life, and swim in some of the clearest water you will ever see.</p>
+                        <ul class="tour-includes">
+                            <li>Pristine reef snorkeling spots</li>
+                            <li>Tropical fish, rays, and sea turtles</li>
+                            <li>Crystal-clear Bahamian water</li>
+                            <li>Max knows the best hidden swimming spots</li>
+                            <li>Equipment guidance available</li>
+                        </ul>
+                        <div class="tour-meta" style="margin-bottom:1.75rem;">
+                            <span class="tour-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                4–5 Hours
+                            </span>
+                            <span class="tour-badge">Marine Life</span>
+                            <span class="tour-badge">Small Groups</span>
+                        </div>
+                        <a href="https://wa.me/12424730233?text=Hi%2C%20I'd%20like%20to%20check%20availability%20for%20the%20Snorkeling%20%26%20Sea%20Life%20Tour" class="btn btn-tour-cta">Check Availability</a>
+                    </div>
+                </div>
+
+                <!-- Tour 3: Blue Hole -->
+                <div class="tour-card-lg reveal-up delay-100">
+                    <div class="tour-card-image">
+                        <img src="images/gallery7.avif" alt="Blue Hole Adventure Tour">
+                        <div class="tour-img-overlay"></div>
+                    </div>
+                    <div class="tour-card-lg-body">
+                        <h3>Blue Hole Adventure</h3>
+                        <p class="tour-desc">Bimini's natural blue holes are among the most spectacular geological features in the Bahamas. These mystical underwater formations attract divers and explorers from around the world — and Max knows exactly where to find the best ones.</p>
+                        <ul class="tour-includes">
+                            <li>Bimini's legendary natural blue holes</li>
+                            <li>Scenic boat ride through the islands</li>
+                            <li>Underwater exploration opportunities</li>
+                            <li>Stunning photography spots</li>
+                            <li>Local geological and natural history</li>
+                        </ul>
+                        <div class="tour-meta" style="margin-bottom:1.75rem;">
+                            <span class="tour-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Half Day
+                            </span>
+                            <span class="tour-badge">Bucket-List</span>
+                            <span class="tour-badge">Small Groups</span>
+                        </div>
+                        <a href="https://wa.me/12424730233?text=Hi%2C%20I'd%20like%20to%20check%20availability%20for%20the%20Blue%20Hole%20Adventure" class="btn btn-tour-cta">Check Availability</a>
+                    </div>
+                </div>
+
+                <!-- Tour 4: Beaches & Flavor -->
+                <div class="tour-card-lg reveal-up delay-200">
+                    <div class="tour-card-image">
+                        <img src="images/gallery8.avif" alt="Beaches and Local Flavor Tour">
+                        <div class="tour-img-overlay"></div>
+                    </div>
+                    <div class="tour-card-lg-body">
+                        <h3>Beaches & Local Flavor</h3>
+                        <p class="tour-desc">The perfect Bimini day: pristine white sand, warm turquoise water, and authentic Bahamian food. Max takes you to the best local spots — the beaches the resorts don't know about, and the food that will have you coming back for more.</p>
+                        <ul class="tour-includes">
+                            <li>Secluded white sand beaches</li>
+                            <li>Authentic Bahamian cuisine stops</li>
+                            <li>Local seafood at the best spots</li>
+                            <li>Unhurried, island-time pace</li>
+                            <li>Flexible itinerary based on your interests</li>
+                        </ul>
+                        <div class="tour-meta" style="margin-bottom:1.75rem;">
+                            <span class="tour-badge">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Flexible
+                            </span>
+                            <span class="tour-badge">Beach + Food</span>
+                            <span class="tour-badge">Customizable</span>
+                        </div>
+                        <a href="https://wa.me/12424730233?text=Hi%2C%20I'd%20like%20to%20check%20availability%20for%20the%20Beaches%20%26%20Local%20Flavor%20Tour" class="btn btn-tour-cta">Check Availability</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Custom Tours Callout -->
+            <div class="custom-tours-callout reveal-up">
+                <span class="eyebrow">Not Seeing What You Need?</span>
+                <h3>Build Your Own <span class="italic-title-inline">Custom Tour</span></h3>
+                <p>Have something specific in mind? Max is happy to build a completely custom experience around what you love — whether it's fishing, history, food, or all of the above. Just send a message and we'll make it happen.</p>
+                <a href="https://wa.me/12424730233?text=Hi%20Max%2C%20I'd%20like%20to%20discuss%20a%20custom%20tour%20experience" class="btn btn-tour-cta">Plan a Custom Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2 class="reveal-up serif-title" style="color:white;">Not Sure Which Tour? <span class="italic-title-inline" style="color:rgba(255,255,255,0.9);">Just Ask.</span></h2>
+            <p class="reveal-up delay-100">Send Max a message and he'll help you find the perfect Bimini experience for your group, your schedule, and your interests.</p>
+            <div class="final-cta-buttons reveal-up delay-200">
+                <a href="https://wa.me/12424730233?text=Hi%20Max%2C%20I'd%20like%20help%20choosing%20the%20right%20tour%20for%20me" class="btn-cta-white">Chat with Max</a>
+                <a href="mailto:info@tourbimini.com" class="btn-cta-ghost">Send an Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-luxury" id="contact">
+        <div class="footer-overlay"></div>
+        <div class="container footer-content">
+            <div class="footer-grid-luxury">
+                <div class="footer-col brand-col">
+                    <img src="images/logo.avif" alt="Bimini Island Tours Logo" class="footer-logo-luxury">
+                    <p>Authentic family hospitality in Bimini. Explore and taste the beauty of island life.</p>
+                    <a href="https://wa.me/12424730233?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20tour" class="btn btn-footer-cta">Chat on WhatsApp</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="index.html#reviews">Reviews</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col-luxury">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info-luxury">
+                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Bailey Town, Bimini, Bahamas</p>
+                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <a href="tel:+12424730233">(242) 473-0233</a></p>
+                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:info@tourbimini.com">info@tourbimini.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-col social-col">
+                    <h3>Social</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/biminiislandtours" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.facebook.com/biminiislandtours/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-luxury">
+                <div class="footer-divider"></div>
+                <p class="copyright-luxury">Copyright © Bimini Island Tours | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY WHATSAPP -->
+    <a href="https://wa.me/12424730233?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20tour%20with%20Bimini%20Island%20Tours" class="sticky-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="sticky-label">Check Availability</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
