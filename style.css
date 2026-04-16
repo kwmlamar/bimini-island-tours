@@ -821,7 +821,7 @@ a {
 
 .reviews-marq-section {
     background: var(--bg-color);
-    padding: 7rem 0 7rem;
+    padding: 4rem 0 8rem; /* Reduced top padding, keeping bottom padding for footer gap */
     overflow: hidden;
 }
 
@@ -1643,7 +1643,7 @@ a {
 
 .featured-tours-section {
     background-color: #f0f4f2;
-    padding: 8rem 0;
+    padding: 8rem 0 4rem; /* Reduced bottom padding */
     position: relative;
     overflow: hidden;
 }
@@ -1716,7 +1716,7 @@ a {
 
 .max-message-section {
     background-color: var(--bg-color);
-    padding: 8rem 0; /* Add 8rem padding to the top to fix touching section above */
+    padding: 4rem 0; /* Reduced padding to balance with surrounding sections */
 }
 .max-card {
     background: white;
