@@ -3560,8 +3560,6 @@ a {
     }
     .booking-sidebar {
         position: static;
-        /* Reorder: show WhatsApp card first on mobile */
-        order: -1;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
