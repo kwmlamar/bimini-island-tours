@@ -98,7 +98,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tourDate">Preferred Date <span class="required">*</span></label>
-                                    <input type="date" id="tourDate" name="Date" required>
+                                    <div class="datepicker-wrap" id="datepickerWrap">
+                                        <input type="text" id="tourDate" name="Date" placeholder="Select a date" required readonly autocomplete="off">
+                                        <svg class="datepicker-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <div class="datepicker-dropdown" id="datepickerDropdown">
+                                            <div class="dp-header">
+                                                <button type="button" class="dp-nav dp-prev" id="dpPrev" aria-label="Previous month">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                                                </button>
+                                                <span class="dp-month-year" id="dpMonthYear"></span>
+                                                <button type="button" class="dp-nav dp-next" id="dpNext" aria-label="Next month">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="dp-weekdays">
+                                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                            </div>
+                                            <div class="dp-days" id="dpDays"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -108,9 +126,15 @@
                                     <option value="" disabled selected>Choose a tour…</option>
                                     <option value="North Bimini Historical Tour">North Bimini Historical Tour</option>
                                     <option value="South Bimini Tour">South Bimini Tour</option>
-                                    <option value="Combination Tour (Full Experience)">Combination Tour — Full Experience</option>
-                                    <option value="Private VIP Tour">Private VIP Tour</option>
-                                    <option value="Golf Cart Tour">Golf Cart Tour</option>
+                                    <option value="Full Bimini Experience">Full Bimini Experience</option>
+                                    <option value="Golf Cart Guided Tour">Golf Cart Guided Tour</option>
+                                    <option value="Golf Cart Orientation">Golf Cart Orientation</option>
+                                    <option value="Eat Like a Local Food Tour">Eat Like a Local Food Tour</option>
+                                    <option value="Bimini Beach Experience">Bimini Beach Experience</option>
+                                    <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
+                                    <option value="Private VIP Custom Tour">Private VIP Custom Tour</option>
+                                    <option value="Transportation / VIP Service">Transportation / VIP Service</option>
+                                    <option value="Professional Partner / DMC">Professional Partner / DMC</option>
                                     <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
                                 </select>
                             </div>
@@ -168,7 +192,6 @@
                         <h3>Chat With Us</h3>
                         <p>Need a faster response or want to talk through your options? Chat with us instantly — we're online.</p>
                         <button class="btn-booking-chat js-open-chat">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             Open Chat
                         </button>
                         <a href="https://wa.me/2428108687?text=Hi%20Max%2C%20I'd%20like%20to%20book%20a%20tour!" class="booking-wa-subtle" target="_blank" rel="noopener noreferrer">
@@ -182,23 +205,23 @@
                         <ul class="booking-tour-list">
                             <li>
                                 <span class="btl-name">North Bimini Historical</span>
-                                <span class="btl-detail">2 hrs &middot; from $75</span>
+                                <span class="btl-detail">2 hrs &middot; from $110</span>
                             </li>
                             <li>
                                 <span class="btl-name">South Bimini Tour</span>
-                                <span class="btl-detail">Half day &middot; from $150</span>
+                                <span class="btl-detail">2 hrs &middot; from $155</span>
                             </li>
                             <li>
                                 <span class="btl-name">Full Experience</span>
                                 <span class="btl-detail">4 hrs &middot; from $199</span>
                             </li>
                             <li>
-                                <span class="btl-name">Private VIP Tour</span>
-                                <span class="btl-detail">Custom &middot; from $375</span>
+                                <span class="btl-name">Golf Cart Experience</span>
+                                <span class="btl-detail">1–2 hrs &middot; from $150</span>
                             </li>
                             <li>
-                                <span class="btl-name">Golf Cart Tour</span>
-                                <span class="btl-detail">1–2 hrs &middot; from $350</span>
+                                <span class="btl-name">Premium Food Tour</span>
+                                <span class="btl-detail">3 hrs &middot; from $125</span>
                             </li>
                         </ul>
                         <a href="tours.html" class="booking-all-tours-link">
@@ -296,9 +319,80 @@
         const submitBtn = document.getElementById('bookingSubmitBtn');
         if (!form) return;
 
-        // Set min date to today
+        // Custom datepicker
         const dateInput = document.getElementById('tourDate');
-        if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+        const dpWrap = document.getElementById('datepickerWrap');
+        const dpDropdown = document.getElementById('datepickerDropdown');
+        const dpDays = document.getElementById('dpDays');
+        const dpMonthYear = document.getElementById('dpMonthYear');
+        const dpPrev = document.getElementById('dpPrev');
+        const dpNext = document.getElementById('dpNext');
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        let dpYear = today.getFullYear();
+        let dpMonth = today.getMonth();
+        let dpSelected = null;
+
+        const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+        function renderCalendar() {
+            dpMonthYear.textContent = MONTHS[dpMonth] + ' ' + dpYear;
+            dpDays.innerHTML = '';
+            const firstDay = new Date(dpYear, dpMonth, 1).getDay();
+            const daysInMonth = new Date(dpYear, dpMonth + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('span');
+                empty.className = 'dp-day dp-empty';
+                dpDays.appendChild(empty);
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'dp-day';
+                btn.textContent = d;
+                const cellDate = new Date(dpYear, dpMonth, d);
+                if (cellDate < today) {
+                    btn.classList.add('dp-disabled');
+                } else {
+                    if (cellDate.getTime() === today.getTime()) btn.classList.add('dp-today');
+                    if (dpSelected && cellDate.getTime() === dpSelected.getTime()) btn.classList.add('dp-selected');
+                    btn.addEventListener('click', function() {
+                        dpSelected = cellDate;
+                        const formatted = cellDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+                        dateInput.value = formatted;
+                        dateInput.dataset.iso = cellDate.toISOString().split('T')[0];
+                        dpDropdown.classList.remove('is-open');
+                        renderCalendar();
+                    });
+                }
+                dpDays.appendChild(btn);
+            }
+        }
+
+        dateInput.addEventListener('click', function() {
+            dpDropdown.classList.toggle('is-open');
+        });
+
+        dpPrev.addEventListener('click', function() {
+            dpMonth--;
+            if (dpMonth < 0) { dpMonth = 11; dpYear--; }
+            renderCalendar();
+        });
+
+        dpNext.addEventListener('click', function() {
+            dpMonth++;
+            if (dpMonth > 11) { dpMonth = 0; dpYear++; }
+            renderCalendar();
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dpWrap.contains(e.target)) dpDropdown.classList.remove('is-open');
+        });
+
+        renderCalendar();
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -306,11 +400,12 @@
             const name    = form.Name.value.trim();
             const email   = form.Email.value.trim();
             const guests  = form.Guests.value.trim();
-            const date    = form.Date.value;
+            const date    = dateInput.dataset.iso || '';
             const tour    = form.Tour.value;
             const notes   = form.Notes.value.trim();
 
             if (!name || !email || !guests || !date || !tour) {
+                if (!date) dateInput.style.borderColor = '#ef4444';
                 form.reportValidity();
                 return;
             }
@@ -319,9 +414,7 @@
             submitBtn.disabled    = true;
             submitBtn.textContent = 'Sending…';
 
-            const formattedDate = date
-                ? new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-                : date;
+            const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
             const subject = `Tour Booking: ${name} — ${tour}`;
 
