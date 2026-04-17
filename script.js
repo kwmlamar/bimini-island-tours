@@ -265,4 +265,19 @@ document.addEventListener('DOMContentLoaded', () => {
         footerObserver.observe(footer);
     }
 
+    // ===== BOOKING FORM PRE-SELECTION =====
+    const urlParams  = new URLSearchParams(window.location.search);
+    const tourParam = urlParams.get('tour');
+    const tourSelect = document.getElementById('tourSelect');
+    
+    if (tourParam && tourSelect) {
+        // Find option that matches the parameter (case insensitive or exact)
+        for (let i = 0; i < tourSelect.options.length; i++) {
+            if (tourSelect.options[i].value === tourParam) {
+                tourSelect.selectedIndex = i;
+                break;
+            }
+        }
+    }
+
 });
