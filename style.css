@@ -1427,7 +1427,17 @@ a {
         height: 100dvh !important;
         border-radius: 0;
     }
-    .navbar { padding: 1.5rem; }
+    .navbar { padding: 1.25rem 1rem; }
+    .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .navbar .btn-outline {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
     .nav-links { display: none; }
     .hero-content { bottom: 9%; left: 1.5rem; max-width: calc(100% - 3rem); }
     .hero-ctas { gap: 0.75rem; }
