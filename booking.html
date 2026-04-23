@@ -3,468 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Tour - Bimini Island Tours</title>
+    <title>Book a Tour — Bimini Island Tours</title>
     <meta name="description" content="Plan your Bimini experience. Send a booking request or message Max directly on WhatsApp for the fastest response.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/avif" href="images/logo.avif">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="inner-page booking-split-page">
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <img src="images/logo.avif" alt="Bimini Island Tours" class="mobile-menu-logo">
-            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-        <ul class="mobile-menu-links">
-            <li><a href="index.html">Home</a></li>
+<div id="progress-bar"></div>
+
+<!-- ── MOBILE MENU ──────────────────────────────────────────── -->
+<div id="mobOverlay" class="mob-overlay"></div>
+<nav id="mobMenu" class="mob-menu" aria-label="Mobile navigation">
+    <button id="mobClose" class="mob-close" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="mob-logo-wrap">
+        <img src="images/logo.avif" alt="Bimini Island Tours" class="mob-logo">
+    </div>
+    <ul class="mob-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ── NAVBAR ───────────────────────────────────────────────── -->
+<header id="navbar">
+    <nav class="nav-inner">
+        <a href="index.html" class="nav-logo-wrap" aria-label="Bimini Island Tours home">
+            <img src="images/logo.avif" alt="Bimini Island Tours" class="nav-logo">
+        </a>
+        <ul class="nav-links" role="list">
             <li><a href="tours.html">Tours</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="booking.html">Book a Tour</a></li>
-            <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#reviews">Reviews</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#about">About</a></li>
         </ul>
-        <!-- CTA Removed as redundant on booking page -->
+        <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  SPLIT LAYOUT                                             -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="bsplit">
+
+    <!-- ── LEFT: Photo panel ────────────────────────────────── -->
+    <div class="bsplit-left">
+        <img src="images/gallery14.avif" alt="Bimini island experience" class="bsplit-bg-img">
+        <div class="bsplit-overlay"></div>
+
+        <!-- Heading over photo -->
+        <div class="bsplit-hero-text">
+            <p class="bsplit-eyebrow">Reserve Your Spot</p>
+            <h1 class="bsplit-heading">Book Your<br><em>Bimini<br>Experience</em></h1>
+        </div>
+
+        <!-- Dark contact panel at bottom -->
+        <div class="bsplit-contact-panel">
+            <p class="bsplit-contact-label">Get in touch directly</p>
+            <div class="bsplit-contacts">
+                <a href="https://wa.me/2428108687?text=Hi%20Max%2C%20I'd%20like%20to%20book%20a%20tour!" class="bsplit-contact-item" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    WhatsApp Max
+                </a>
+                <a href="tel:+12428108687" class="bsplit-contact-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    242-810-8687
+                </a>
+                <a href="mailto:info@tourbimini.com" class="bsplit-contact-item">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    info@tourbimini.com
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- PAGE HEADER -->
-    <header class="page-header" id="pageHeader">
-        <div class="container page-nav">
-            <a href="index.html">
-                <img src="images/logo.avif" alt="Bimini Island Tours" class="page-nav-logo">
-            </a>
-            <ul class="page-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tours.html">Tours</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;">
-                <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
-                    <span></span><span></span><span></span>
+    <!-- ── RIGHT: Form panel ────────────────────────────────── -->
+    <div class="bsplit-right">
+        <div class="bsplit-form-wrap">
+
+            <div class="bsplit-form-header">
+                <h2>Send a Booking Request</h2>
+                <p>Fill in your details and we'll confirm availability via email.</p>
+            </div>
+
+            <form class="booking-form" id="bookingForm" novalidate>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guestName">Name <span class="required">*</span></label>
+                        <input type="text" id="guestName" name="Name" placeholder="Enter here" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="guestEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="guestEmail" name="Email" placeholder="Enter here" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guestCount">Guests <span class="required">*</span></label>
+                        <input type="number" id="guestCount" name="Guests" placeholder="e.g. 2" min="1" max="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tourDate">Preferred Date <span class="required">*</span></label>
+                        <div class="datepicker-wrap" id="datepickerWrap">
+                            <input type="text" id="tourDate" name="Date" placeholder="Select a date" required readonly autocomplete="off">
+                            <svg class="datepicker-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <div class="datepicker-dropdown" id="datepickerDropdown">
+                                <div class="dp-header">
+                                    <button type="button" class="dp-nav dp-prev" id="dpPrev" aria-label="Previous month">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                                    </button>
+                                    <span class="dp-month-year" id="dpMonthYear"></span>
+                                    <button type="button" class="dp-nav dp-next" id="dpNext" aria-label="Next month">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                                    </button>
+                                </div>
+                                <div class="dp-weekdays">
+                                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <div class="dp-days" id="dpDays"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="tourSelect">Select a Tour <span class="required">*</span></label>
+                    <select id="tourSelect" name="Tour" required>
+                        <option value="" disabled selected>Choose a tour…</option>
+                        <option value="North Bimini Historical Tour">North Bimini Historical Tour</option>
+                        <option value="South Bimini Tour">South Bimini Tour</option>
+                        <option value="Full Bimini Experience">Full Bimini Experience</option>
+                        <option value="Golf Cart Guided Tour">Golf Cart Guided Tour</option>
+                        <option value="Golf Cart Orientation">Golf Cart Orientation</option>
+                        <option value="Eat Like a Local Food Tour">Eat Like a Local Food Tour</option>
+                        <option value="Bimini Beach Experience">Bimini Beach Experience</option>
+                        <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
+                        <option value="Private VIP Custom Tour">Private VIP Custom Tour</option>
+                        <option value="Transportation / VIP Service">Transportation / VIP Service</option>
+                        <option value="Professional Partner / DMC">Professional Partner / DMC</option>
+                        <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
+                    </select>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="guestMessage">Message <span class="form-optional">(optional)</span></label>
+                    <textarea id="guestMessage" name="Notes" rows="3" placeholder="Enter here"></textarea>
+                </div>
+
+                <button type="submit" class="btn-booking-submit" id="bookingSubmitBtn">
+                    Submit
+                    <span class="btn-booking-arrow">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                    </span>
                 </button>
-            </div>
-        </div>
-    </header>
 
-    <!-- PAGE HERO -->
-    <section class="page-hero booking-page-hero">
-        <div class="page-hero-content">
-            <span class="eyebrow" style="color:rgba(255,255,255,0.55);">Reserve Your Spot</span>
-            <h1 class="serif-title" style="text-transform:none;">Plan Your <span class="italic-title-inline">Bimini Experience</span></h1>
-            <p>Tell us a little about your visit and we'll confirm your spot — usually within a few hours.</p>
-        </div>
-    </section>
+            </form>
 
-    <!-- BOOKING SECTION -->
-    <section class="booking-section">
-        <div class="container">
-            <div class="booking-layout">
-
-                <!-- LEFT: Form -->
-                <div class="booking-form-col reveal-left">
-                    <div class="booking-form-card">
-                        <div class="booking-form-header">
-                            <h2>Send a Booking Request</h2>
-                            <p>Fill in your details below and we'll confirm availability via email — usually within a few hours.</p>
-                        </div>
-
-                        <form class="booking-form" id="bookingForm" novalidate>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="guestName">Your Name <span class="required">*</span></label>
-                                    <input type="text" id="guestName" name="Name" placeholder="e.g. Jane Smith" required autocomplete="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="guestEmail">Email Address <span class="required">*</span></label>
-                                    <input type="email" id="guestEmail" name="Email" placeholder="your@email.com" required autocomplete="email">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="guestCount">Number of Guests <span class="required">*</span></label>
-                                    <input type="number" id="guestCount" name="Guests" placeholder="e.g. 2" min="1" max="20" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tourDate">Preferred Date <span class="required">*</span></label>
-                                    <div class="datepicker-wrap" id="datepickerWrap">
-                                        <input type="text" id="tourDate" name="Date" placeholder="Select a date" required readonly autocomplete="off">
-                                        <svg class="datepicker-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                        <div class="datepicker-dropdown" id="datepickerDropdown">
-                                            <div class="dp-header">
-                                                <button type="button" class="dp-nav dp-prev" id="dpPrev" aria-label="Previous month">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-                                                </button>
-                                                <span class="dp-month-year" id="dpMonthYear"></span>
-                                                <button type="button" class="dp-nav dp-next" id="dpNext" aria-label="Next month">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="dp-weekdays">
-                                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                                            </div>
-                                            <div class="dp-days" id="dpDays"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group form-group-full" style="margin-bottom:1.25rem;">
-                                <label for="tourSelect">Select a Tour <span class="required">*</span></label>
-                                <select id="tourSelect" name="Tour" required>
-                                    <option value="" disabled selected>Choose a tour…</option>
-                                    <option value="North Bimini Historical Tour">North Bimini Historical Tour</option>
-                                    <option value="South Bimini Tour">South Bimini Tour</option>
-                                    <option value="Full Bimini Experience">Full Bimini Experience</option>
-                                    <option value="Golf Cart Guided Tour">Golf Cart Guided Tour</option>
-                                    <option value="Golf Cart Orientation">Golf Cart Orientation</option>
-                                    <option value="Eat Like a Local Food Tour">Eat Like a Local Food Tour</option>
-                                    <option value="Bimini Beach Experience">Bimini Beach Experience</option>
-                                    <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
-                                    <option value="Private VIP Custom Tour">Private VIP Custom Tour</option>
-                                    <option value="Transportation / VIP Service">Transportation / VIP Service</option>
-                                    <option value="Professional Partner / DMC">Professional Partner / DMC</option>
-                                    <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group form-group-full">
-                                <label for="guestMessage">Additional Notes <span class="form-optional">(optional)</span></label>
-                                <textarea id="guestMessage" name="Notes" rows="4" placeholder="Any special requests, accessibility needs, or questions for Max…"></textarea>
-                            </div>
-
-                            <button type="submit" class="btn-booking-submit" id="bookingSubmitBtn">
-                                Send Booking Request
-                            </button>
-                        </form>
-
-                        <!-- Success state -->
-                        <div class="booking-success" id="bookingSuccess">
-                            <div class="booking-success-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            </div>
-                            <h3>Request Received!</h3>
-                            <p>Thanks! We've received your request and will confirm availability shortly via email.</p>
-                            <a href="tours.html" class="btn-booking-secondary">Browse All Tours</a>
-                        </div>
-                    </div>
-
-                    <!-- What Happens Next -->
-                    <div class="booking-next-steps reveal-up">
-                        <h4>What Happens Next</h4>
-                        <ol class="next-steps-list">
-                            <li>
-                                <span class="step-num">1</span>
-                                <span>Your request is sent to Max via email</span>
-                            </li>
-                            <li>
-                                <span class="step-num">2</span>
-                                <span>Max reviews and confirms availability — usually within a few hours</span>
-                            </li>
-                            <li>
-                                <span class="step-num">3</span>
-                                <span>You'll receive a confirmation email and your tour is locked in</span>
-                            </li>
-                        </ol>
-                    </div>
+            <!-- Success state -->
+            <div class="booking-success" id="bookingSuccess">
+                <div class="booking-success-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
+                <h3>Request Received!</h3>
+                <p>Thanks! We'll confirm availability shortly via email.</p>
+                <a href="tours.html" class="btn-booking-secondary">Browse All Tours</a>
+            </div>
 
-                <!-- RIGHT: Sidebar -->
-                <aside class="booking-sidebar reveal-right">
+            <div class="bsplit-form-footer">
+                <a href="tours.html" class="bsplit-back-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    View all tours
+                </a>
+                <span class="bsplit-form-trust">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Family-owned · 5★ rated
+                </span>
+            </div>
 
-                    <!-- Chat fast-track -->
-                    <div class="booking-chat-card">
-                        <div class="booking-chat-icon">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        </div>
-                        <span class="booking-chat-label">Have a quick question?</span>
-                        <h3>Chat With Us</h3>
-                        <p>Need a faster response or want to talk through your options? Chat with us instantly — we're online.</p>
-                        <button class="btn-booking-chat js-open-chat">
-                            Open Chat
-                        </button>
-                        <a href="https://wa.me/2428108687?text=Hi%20Max%2C%20I'd%20like%20to%20book%20a%20tour!" class="booking-wa-subtle" target="_blank" rel="noopener noreferrer">
-                            Prefer WhatsApp? Message us
+        </div>
+    </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  FOOTER                                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<footer class="bfooter" id="contact">
+    <div class="bfooter-inner">
+
+        <!-- Logo -->
+        <div class="bfooter-logo-wrap">
+            <img src="images/logo.avif" alt="Bimini Island Tours" class="bfooter-logo">
+        </div>
+
+        <!-- Main grid: statement left · where next right -->
+        <div class="bfooter-grid">
+
+            <div class="bfooter-left">
+                <p class="bfooter-eyebrow">Ready to explore?</p>
+                <h2 class="bfooter-heading">Experience<br><em>Bimini.</em></h2>
+            </div>
+
+            <div class="bfooter-right">
+                <p class="bfooter-where">Where next?</p>
+                <ul class="bfooter-links">
+                    <li>
+                        <a href="index.html" class="bfooter-link">
+                            Home
+                            <span class="bfooter-link-arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </span>
                         </a>
-                    </div>
-
-                    <!-- Tour Quick Reference -->
-                    <div class="booking-tours-ref">
-                        <h4>Our Tours at a Glance</h4>
-                        <ul class="booking-tour-list">
-                            <li>
-                                <span class="btl-name">North Bimini Historical</span>
-                                <span class="btl-detail">2 hrs &middot; from $110</span>
-                            </li>
-                            <li>
-                                <span class="btl-name">South Bimini Tour</span>
-                                <span class="btl-detail">2 hrs &middot; from $155</span>
-                            </li>
-                            <li>
-                                <span class="btl-name">Full Experience</span>
-                                <span class="btl-detail">4 hrs &middot; from $199</span>
-                            </li>
-                            <li>
-                                <span class="btl-name">Golf Cart Experience</span>
-                                <span class="btl-detail">1–2 hrs &middot; from $150</span>
-                            </li>
-                            <li>
-                                <span class="btl-name">Premium Food Tour</span>
-                                <span class="btl-detail">3 hrs &middot; from $125</span>
-                            </li>
-                        </ul>
-                        <a href="tours.html" class="booking-all-tours-link">
-                            View full tour details
+                    </li>
+                    <li>
+                        <a href="index.html#contact" class="bfooter-link">
+                            Contact
+                            <span class="bfooter-link-arrow">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </span>
                         </a>
-                    </div>
-
-                    <!-- Trust signals -->
-                    <div class="booking-trust">
-                        <div class="booking-trust-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            <span>Family-owned &amp; locally operated</span>
-                        </div>
-                        <div class="booking-trust-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <span>Top-rated 5★ on Google &amp; TripAdvisor</span>
-                        </div>
-                        <div class="booking-trust-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <span>Flexible scheduling, small groups</span>
-                        </div>
-                    </div>
-
-                </aside>
+                    </li>
+                </ul>
             </div>
+
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="footer-luxury" id="contact">
-        <div class="footer-overlay"></div>
-        <div class="container footer-content">
-            <div class="footer-grid-luxury">
-                <div class="footer-col brand-col">
-                    <img src="images/logo.avif" alt="Bimini Island Tours Logo" class="footer-logo-luxury">
-                    <p>Authentic family hospitality in Bimini. Explore and taste the beauty of island life.</p>
-                    <a href="#booking-form" class="btn btn-footer-cta">Book Now</a>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="tours.html">Tours</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="booking.html">Book a Tour</a></li>
-                        <li><a href="index.html#reviews">Reviews</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col contact-col-luxury">
-                    <h3>Contact Us</h3>
-                    <div class="contact-info-luxury">
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Bailey Town, Bimini, Bahamas</p>
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <a href="tel:+12428108687">242-810-8687 (TOUR)</a></p>
-                        <div class="backup-list">
-                            <span class="backup-label">Backups</span>
-                            <div class="backup-links">
-                                <a href="tel:+12424730233">242-473-0233</a>
-                                <span class="sep">&middot;</span>
-                                <a href="tel:+12424422629">242-442-2629</a>
-                            </div>
-                        </div>
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:info@tourbimini.com">info@tourbimini.com</a></p>
-                    </div>
-                </div>
-                <div class="footer-col social-col">
-                    <h3>Social</h3>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/biminiislandtours" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                        <a href="https://www.facebook.com/biminiislandtours/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom-luxury">
-                <div class="footer-divider"></div>
-                <p class="copyright-luxury">Copyright &copy; 2026 Bimini Island Tours | All Rights Reserved. <br> Designed &amp; Built by <a href="https://tropitech.org" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.3s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">TropiTech Solutions</a></p>
-            </div>
+        <!-- Bottom bar -->
+        <div class="bfooter-bottom">
+            <p>© <span id="year"></span> Bimini Island Tours. All Rights Reserved.</p>
+            <p>Built by <a href="https://tropitech.org" target="_blank" rel="noopener">TropiTech Solutions</a></p>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
-    <script src="tropichat.js"></script>
-    <script>
-    /* ─── Booking Form — Email via Formspree ─────────────────────────────
-     * SETUP: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID.
-     * Get one free at https://formspree.io — takes ~2 minutes to set up.
-     * Until configured, form falls back to opening a pre-filled email client.
-     * ──────────────────────────────────────────────────────────────────── */
-    (function () {
-        const FORMSPREE_ID  = 'YOUR_FORMSPREE_ID';
-        const OWNER_EMAIL   = 'info@tourbimini.com';
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
 
-        const form      = document.getElementById('bookingForm');
-        const successEl = document.getElementById('bookingSuccess');
-        const submitBtn = document.getElementById('bookingSubmitBtn');
-        if (!form) return;
+<!-- ── BOOKING FORM LOGIC ────────────────────────────────────── -->
+<script>
+(function () {
+    const FORMSPREE_ID  = 'YOUR_FORMSPREE_ID';
+    const OWNER_EMAIL   = 'info@tourbimini.com';
 
-        // Custom datepicker
-        const dateInput = document.getElementById('tourDate');
-        const dpWrap = document.getElementById('datepickerWrap');
-        const dpDropdown = document.getElementById('datepickerDropdown');
-        const dpDays = document.getElementById('dpDays');
-        const dpMonthYear = document.getElementById('dpMonthYear');
-        const dpPrev = document.getElementById('dpPrev');
-        const dpNext = document.getElementById('dpNext');
+    const form      = document.getElementById('bookingForm');
+    const successEl = document.getElementById('bookingSuccess');
+    const submitBtn = document.getElementById('bookingSubmitBtn');
+    if (!form) return;
 
-        const today = new Date();
-        today.setHours(0,0,0,0);
-        let dpYear = today.getFullYear();
-        let dpMonth = today.getMonth();
-        let dpSelected = null;
+    const dateInput   = document.getElementById('tourDate');
+    const dpWrap      = document.getElementById('datepickerWrap');
+    const dpDropdown  = document.getElementById('datepickerDropdown');
+    const dpDays      = document.getElementById('dpDays');
+    const dpMonthYear = document.getElementById('dpMonthYear');
+    const dpPrev      = document.getElementById('dpPrev');
+    const dpNext      = document.getElementById('dpNext');
 
-        const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    let dpYear = today.getFullYear();
+    let dpMonth = today.getMonth();
+    let dpSelected = null;
 
-        function renderCalendar() {
-            dpMonthYear.textContent = MONTHS[dpMonth] + ' ' + dpYear;
-            dpDays.innerHTML = '';
-            const firstDay = new Date(dpYear, dpMonth, 1).getDay();
-            const daysInMonth = new Date(dpYear, dpMonth + 1, 0).getDate();
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-            for (let i = 0; i < firstDay; i++) {
-                const empty = document.createElement('span');
-                empty.className = 'dp-day dp-empty';
-                dpDays.appendChild(empty);
-            }
-
-            for (let d = 1; d <= daysInMonth; d++) {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'dp-day';
-                btn.textContent = d;
-                const cellDate = new Date(dpYear, dpMonth, d);
-                if (cellDate < today) {
-                    btn.classList.add('dp-disabled');
-                } else {
-                    if (cellDate.getTime() === today.getTime()) btn.classList.add('dp-today');
-                    if (dpSelected && cellDate.getTime() === dpSelected.getTime()) btn.classList.add('dp-selected');
-                    btn.addEventListener('click', function() {
-                        dpSelected = cellDate;
-                        const formatted = cellDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
-                        dateInput.value = formatted;
-                        dateInput.dataset.iso = cellDate.toISOString().split('T')[0];
-                        dpDropdown.classList.remove('is-open');
-                        renderCalendar();
-                    });
-                }
-                dpDays.appendChild(btn);
-            }
+    function renderCalendar() {
+        dpMonthYear.textContent = MONTHS[dpMonth] + ' ' + dpYear;
+        dpDays.innerHTML = '';
+        const firstDay = new Date(dpYear, dpMonth, 1).getDay();
+        const daysInMonth = new Date(dpYear, dpMonth + 1, 0).getDate();
+        for (let i = 0; i < firstDay; i++) {
+            const empty = document.createElement('span');
+            empty.className = 'dp-day dp-empty';
+            dpDays.appendChild(empty);
         }
-
-        dateInput.addEventListener('click', function() {
-            dpDropdown.classList.toggle('is-open');
-        });
-
-        dpPrev.addEventListener('click', function() {
-            dpMonth--;
-            if (dpMonth < 0) { dpMonth = 11; dpYear--; }
-            renderCalendar();
-        });
-
-        dpNext.addEventListener('click', function() {
-            dpMonth++;
-            if (dpMonth > 11) { dpMonth = 0; dpYear++; }
-            renderCalendar();
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!dpWrap.contains(e.target)) dpDropdown.classList.remove('is-open');
-        });
-
-        renderCalendar();
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const name    = form.Name.value.trim();
-            const email   = form.Email.value.trim();
-            const guests  = form.Guests.value.trim();
-            const date    = dateInput.dataset.iso || '';
-            const tour    = form.Tour.value;
-            const notes   = form.Notes.value.trim();
-
-            if (!name || !email || !guests || !date || !tour) {
-                if (!date) dateInput.style.borderColor = '#ef4444';
-                form.reportValidity();
-                return;
-            }
-
-            // Loading state
-            submitBtn.disabled    = true;
-            submitBtn.textContent = 'Sending…';
-
-            const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-            const subject = `Tour Booking: ${name} — ${tour}`;
-
-            // ── Formspree not configured → mailto fallback ──
-            if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-                const body = [
-                    `Name: ${name}`,
-                    `Email: ${email}`,
-                    `Guests: ${guests}`,
-                    `Date: ${formattedDate}`,
-                    `Tour: ${tour}`,
-                    `Notes: ${notes || 'None'}`
-                ].join('\n');
-                window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-                showSuccess();
-                return;
-            }
-
-            // ── Formspree AJAX submission ──
-            try {
-                const fd = new FormData();
-                fd.append('_subject', subject);
-                fd.append('_replyto', email);
-                fd.append('Source', 'Booking Form');
-                fd.append('Name',   name);
-                fd.append('Email',  email);
-                fd.append('Guests', guests);
-                fd.append('Date',   formattedDate);
-                fd.append('Tour',   tour);
-                fd.append('Notes',  notes || 'None');
-
-                const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-                    method: 'POST', body: fd, headers: { Accept: 'application/json' }
+        for (let d = 1; d <= daysInMonth; d++) {
+            const btn = document.createElement('button');
+            btn.type = 'button'; btn.className = 'dp-day'; btn.textContent = d;
+            const cellDate = new Date(dpYear, dpMonth, d);
+            if (cellDate < today) {
+                btn.classList.add('dp-disabled');
+            } else {
+                if (cellDate.getTime() === today.getTime()) btn.classList.add('dp-today');
+                if (dpSelected && cellDate.getTime() === dpSelected.getTime()) btn.classList.add('dp-selected');
+                btn.addEventListener('click', function() {
+                    dpSelected = cellDate;
+                    dateInput.value = cellDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+                    dateInput.dataset.iso = cellDate.toISOString().split('T')[0];
+                    dpDropdown.classList.remove('is-open');
+                    renderCalendar();
                 });
-                if (res.ok) {
-                    showSuccess();
-                } else {
-                    throw new Error('Formspree error');
-                }
-            } catch {
-                // Fallback: mailto on network/Formspree error
-                const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
-                window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-                showSuccess();
             }
-        });
-
-        function showSuccess() {
-            form.style.display    = 'none';
-            successEl.style.display = 'flex';
+            dpDays.appendChild(btn);
         }
-    })();
-    </script>
+    }
+
+    dateInput.addEventListener('click', () => dpDropdown.classList.toggle('is-open'));
+    dpPrev.addEventListener('click', () => { dpMonth--; if (dpMonth < 0) { dpMonth = 11; dpYear--; } renderCalendar(); });
+    dpNext.addEventListener('click', () => { dpMonth++; if (dpMonth > 11) { dpMonth = 0; dpYear++; } renderCalendar(); });
+    document.addEventListener('click', (e) => { if (!dpWrap.contains(e.target)) dpDropdown.classList.remove('is-open'); });
+    renderCalendar();
+
+    const tourParam = new URLSearchParams(window.location.search).get('tour');
+    const tourSelect = document.getElementById('tourSelect');
+    if (tourParam && tourSelect) {
+        for (let opt of tourSelect.options) {
+            if (opt.value === tourParam) { tourSelect.value = tourParam; break; }
+        }
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const name   = form.Name.value.trim();
+        const email  = form.Email.value.trim();
+        const guests = form.Guests.value.trim();
+        const date   = dateInput.dataset.iso || '';
+        const tour   = form.Tour.value;
+        const notes  = form.Notes.value.trim();
+        if (!name || !email || !guests || !date || !tour) {
+            if (!date) dateInput.style.borderColor = '#ef4444';
+            form.reportValidity(); return;
+        }
+        submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+        const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const subject = `Tour Booking: ${name} — ${tour}`;
+        if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
+            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
+            window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+            showSuccess(); return;
+        }
+        try {
+            const fd = new FormData();
+            fd.append('_subject', subject); fd.append('_replyto', email);
+            fd.append('Source', 'Booking Form'); fd.append('Name', name);
+            fd.append('Email', email); fd.append('Guests', guests);
+            fd.append('Date', formattedDate); fd.append('Tour', tour);
+            fd.append('Notes', notes || 'None');
+            const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+            if (res.ok) { showSuccess(); } else { throw new Error(); }
+        } catch {
+            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
+            window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+            showSuccess();
+        }
+    });
+
+    function showSuccess() {
+        form.style.display = 'none';
+        successEl.style.display = 'flex';
+    }
+})();
+</script>
+
 </body>
 </html>

@@ -7,224 +7,284 @@
     <meta name="description" content="See Bimini through our eyes — crystal-clear water, vibrant island life, and unforgettable moments captured on tour.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/avif" href="images/logo.avif">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="inner-page">
 
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <img src="images/logo.avif" alt="Bimini Island Tours" class="mobile-menu-logo">
-            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-        <ul class="mobile-menu-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tours.html">Tours</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="booking.html">Book a Tour</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#reviews">Reviews</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <div class="mobile-menu-cta">
-            <a href="booking.html" class="btn-tour-cta">Book Now</a>
-        </div>
+<div id="progress-bar"></div>
+
+<!-- ── MOBILE MENU ──────────────────────────────────────────── -->
+<div id="mobOverlay" class="mob-overlay"></div>
+<nav id="mobMenu" class="mob-menu" aria-label="Mobile navigation">
+    <button id="mobClose" class="mob-close" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="mob-logo-wrap">
+        <img src="images/logo.avif" alt="Bimini Island Tours" class="mob-logo">
     </div>
+    <ul class="mob-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="booking.html" class="mob-cta-btn">Book Now →</a>
+</nav>
 
-    <!-- PAGE HEADER -->
-    <header class="page-header" id="pageHeader">
-        <div class="container page-nav">
-            <a href="index.html">
-                <img src="images/logo.avif" alt="Bimini Island Tours" class="page-nav-logo">
-            </a>
-            <ul class="page-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tours.html">Tours</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <div style="display:flex;align-items:center;gap:1rem;">
-                <a href="booking.html" class="btn btn-tour-cta btn-sm">Book Now</a>
-                <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </header>
+<!-- ── NAVBAR ───────────────────────────────────────────────── -->
+<header id="navbar">
+    <nav class="nav-inner">
+        <a href="index.html" class="nav-logo-wrap" aria-label="Bimini Island Tours home">
+            <img src="images/logo.avif" alt="Bimini Island Tours" class="nav-logo">
+        </a>
+        <ul class="nav-links" role="list">
+            <li><a href="tours.html">Tours</a></li>
+            <li><a href="gallery.html" class="nav-active">Gallery</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+        <a href="booking.html" class="btn-pill btn-pill--ghost nav-cta-btn">Book Now <span class="pill-circle">&#8599;</span></a>
+        <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
 
-    <!-- MINIMAL HERO -->
-    <section class="gallery-luxe-hero">
-        <div class="gallery-luxe-hero-bg">
-            <img src="images/group.png" alt="Bimini waters" class="gallery-luxe-hero-img">
-            <div class="gallery-luxe-hero-overlay"></div>
-        </div>
-        <div class="gallery-luxe-hero-content">
-            <span class="eyebrow" style="color:rgba(255,255,255,0.6);">Visual Stories</span>
-            <h1 class="gallery-luxe-title">Our <span class="italic-title-inline">Experiences</span></h1>
-            <p class="gallery-luxe-subtitle">Bimini, captured through the eyes of those who call it home.</p>
-        </div>
-    </section>
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE BANNER                                              -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="page-banner">
+    <div class="page-banner-bg">
+        <img src="images/group.png" alt="Bimini Island Tours group" class="page-banner-img">
+        <div class="page-banner-overlay"></div>
+    </div>
+    <div class="page-banner-content">
+        <p class="page-banner-eyebrow">Visual Stories</p>
+        <h1 class="page-banner-title">Bimini Through <em>Our Lens</em></h1>
+        <p class="page-banner-sub">Crystal-clear water, vibrant island life, and unforgettable moments — captured on tour.</p>
+    </div>
+</section>
 
-    <!-- GALLERY GRID -->
-    <section class="gallery-luxe-section">
-        <div class="gallery-luxe" id="galleryLuxe">
+<nav class="page-breadcrumb" aria-label="Breadcrumb">
+    <div class="page-breadcrumb-inner">
+        <a href="index.html">Home</a>
+        <span class="page-breadcrumb-sep">›</span>
+        <span class="page-breadcrumb-current">Gallery</span>
+    </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  GALLERY GRID                                             -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="gallery-pg-section">
+    <div class="gallery-pg-container">
+        <div class="gallery-pg-grid" id="galleryGrid">
 
             <!-- 1: Featured (2col × 2row) -->
-            <div class="gitem" data-index="0" data-src="images/gallery5.avif" data-caption="The beauty of Bimini">
+            <div class="gitem gitem--featured" data-index="0" data-src="images/gallery5.avif" data-caption="The beauty of Bimini">
                 <img src="images/gallery5.avif" alt="Bimini Island Tour experience" loading="eager">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 2 -->
             <div class="gitem" data-index="1" data-src="images/gallery6.avif" data-caption="Crystal-clear Bahamian waters">
                 <img src="images/gallery6.avif" alt="Bahamian waters" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 3 -->
             <div class="gitem" data-index="2" data-src="images/gallery7.avif" data-caption="Island life, Bimini style">
                 <img src="images/gallery7.avif" alt="Island life in Bimini" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 4 -->
             <div class="gitem" data-index="3" data-src="images/gallery8.avif" data-caption="Every corner tells a story">
                 <img src="images/gallery8.avif" alt="Bimini scenery" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 5 -->
             <div class="gitem" data-index="4" data-src="images/gallery9.avif" data-caption="Bimini waters at their finest">
                 <img src="images/gallery9.avif" alt="Bimini tour highlights" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 6 -->
             <div class="gitem" data-index="5" data-src="images/gallery10.avif" data-caption="Untouched island beauty">
                 <img src="images/gallery10.avif" alt="Untouched Bimini" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 7: Wide (2col) -->
-            <div class="gitem" data-index="6" data-src="images/gallery11.jpeg" data-caption="Bimini from above">
+            <div class="gitem gitem--wide" data-index="6" data-src="images/gallery11.jpeg" data-caption="Bimini from above">
                 <img src="images/gallery11.jpeg" alt="Aerial Bimini view" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 8 -->
             <div class="gitem" data-index="7" data-src="images/gallery17.jpg" data-caption="Moments that last forever">
                 <img src="images/gallery17.jpg" alt="Memorable Bimini moments" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 9 -->
             <div class="gitem" data-index="8" data-src="images/gallery13.jpeg" data-caption="Local Bahamian culture">
                 <img src="images/gallery13.jpeg" alt="Bahamian culture" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 10 -->
             <div class="gitem" data-index="9" data-src="images/gallery14.avif" data-caption="Where the ocean meets the sky">
                 <img src="images/gallery14.avif" alt="Bimini ocean views" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 11 -->
             <div class="gitem" data-index="10" data-src="images/gallery15.avif" data-caption="Bimini's natural wonders">
                 <img src="images/gallery15.avif" alt="Bimini natural beauty" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 12: Wide (2col) -->
-            <div class="gitem" data-index="11" data-src="images/gallery16.avif" data-caption="The island stretched wide">
+            <div class="gitem gitem--wide" data-index="11" data-src="images/gallery16.avif" data-caption="The island stretched wide">
                 <img src="images/gallery16.avif" alt="Bimini panoramic view" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
             <!-- 13 -->
             <div class="gitem" data-index="12" data-src="images/gallery12.jpeg" data-caption="Life on the water">
                 <img src="images/gallery12.jpeg" alt="Life on Bimini waters" loading="lazy">
                 <div class="gitem-overlay"></div>
+                <div class="gitem-zoom">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
             </div>
 
         </div>
-    </section>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <img src="" alt="" class="lightbox-img" id="lightboxImg">
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <span class="lightbox-caption" id="lightboxCaption"></span>
     </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="footer-luxury" id="contact">
-        <div class="footer-overlay"></div>
-        <div class="container footer-content">
-            <div class="footer-grid-luxury">
-                <div class="footer-col brand-col">
-                    <img src="images/logo.avif" alt="Bimini Island Tours Logo" class="footer-logo-luxury">
-                    <p>Authentic family hospitality in Bimini. Explore and taste the beauty of island life.</p>
-                    <a href="booking.html" class="btn btn-footer-cta">Book Now</a>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links-list">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="tours.html">Tours</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="booking.html">Book a Tour</a></li>
-                        <li><a href="index.html#reviews">Reviews</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col contact-col-luxury">
-                    <h3>Contact Us</h3>
-                    <div class="contact-info-luxury">
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Bailey Town, Bimini, Bahamas</p>
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <a href="tel:+12428108687">242-810-8687 (TOUR)</a></p>
-                        <div class="backup-list">
-                            <span class="backup-label">Backups</span>
-                            <div class="backup-links">
-                                <a href="tel:+12424730233">242-473-0233</a>
-                                <span class="sep">&middot;</span>
-                                <a href="tel:+12424422629">242-442-2629</a>
-                            </div>
-                        </div>
-                        <p><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:info@tourbimini.com">info@tourbimini.com</a></p>
-                    </div>
-                </div>
-                <div class="footer-col social-col">
-                    <h3>Social</h3>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/biminiislandtours" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                        <a href="https://www.facebook.com/biminiislandtours/" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom-luxury">
-                <div class="footer-divider"></div>
-                <p class="copyright-luxury">Copyright © 2026 Bimini Island Tours | All Rights Reserved. <br> Designed & Built by <a href="https://tropitech.org" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.3s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">TropiTech Solutions</a></p>
+<!-- ── LIGHTBOX ──────────────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <span class="lightbox-caption" id="lightboxCaption"></span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  FINAL CTA                                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="cta-section">
+    <div class="cta-content">
+        <p class="cta-eyebrow">Ready to experience Bimini?</p>
+        <h2 class="cta-heading">Book Your <em>Adventure.</em></h2>
+        <p class="cta-sub">From heritage walks to private custom tours — Max will help you design the perfect Bimini trip.</p>
+        <div class="cta-actions">
+            <a href="booking.html" class="btn-pill btn-pill--dark">
+                Book a Tour <span class="pill-circle">→</span>
+            </a>
+            <a href="tours.html" class="btn-pill btn-pill--outline-aqua">View All Tours</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  FOOTER                                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<footer class="footer" id="contact">
+    <div class="footer-grid">
+        <div class="footer-left">
+            <img src="images/logo.avif" alt="Bimini Island Tours" class="footer-logo">
+            <p class="footer-tagline">Authentic family hospitality in Bimini. Explore and taste the beauty of island life.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/biminiislandtours" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="https://www.facebook.com/biminiislandtours/" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
             </div>
         </div>
-    </footer>
+        <div class="footer-right">
+            <div class="footer-col">
+                <h4 class="footer-col-title">Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Book a Tour</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-col-title">Contact</h4>
+                <ul>
+                    <li>Bailey Town, Bimini, Bahamas</li>
+                    <li><a href="tel:+12428108687">242-810-8687 (TOUR)</a></li>
+                    <li><a href="tel:+12424730233">242-473-0233</a></li>
+                    <li><a href="mailto:info@tourbimini.com">info@tourbimini.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> Bimini Island Tours. All Rights Reserved.</p>
+        <p>Built by <a href="https://tropitech.org" target="_blank" rel="noopener">TropiTech Solutions</a></p>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
 
-    <!-- STICKY WHATSAPP -->
-    <script src="script.js"></script>
-    <script src="tropichat.js"></script>
 </body>
 </html>
