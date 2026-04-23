@@ -12,7 +12,7 @@
     /* ─── Config ──────────────────────────────────────────── */
     const API_URL     = 'https://tropichat.chat/api/message';
     const BUSINESS_ID = 'bimini-island-tours';
-    const WA_URL      = 'https://wa.me/2428108687?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20tour';
+    const WA_URL      = 'https://wa.me/2428148687?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20tour';
     const ERROR_MSG   = "Sorry, I'm having trouble responding right now. Please try again or use the booking form.";
 
     /* ─── State ───────────────────────────────────────────── */
