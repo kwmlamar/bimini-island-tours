@@ -119,6 +119,19 @@
                         <input type="number" id="guestCount" name="Guests" placeholder="e.g. 2" min="1" max="20" required>
                     </div>
                     <div class="form-group">
+                        <label for="ageRange">Age Range <span class="required">*</span></label>
+                        <select id="ageRange" name="AgeRange" required>
+                            <option value="" disabled selected>Select range…</option>
+                            <option value="All Adults">All Adults (18+)</option>
+                            <option value="Mixed Ages">Mixed Ages (Family)</option>
+                            <option value="Adults & Seniors">Adults & Seniors</option>
+                            <option value="Youth Group">Mostly Youth / Children</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="tourDate">Preferred Date <span class="required">*</span></label>
                         <div class="datepicker-wrap" id="datepickerWrap">
                             <input type="text" id="tourDate" name="Date" placeholder="Select a date" required readonly autocomplete="off">
@@ -140,25 +153,29 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="form-group form-group-full">
-                    <label for="tourSelect">Select a Tour <span class="required">*</span></label>
-                    <select id="tourSelect" name="Tour" required>
-                        <option value="" disabled selected>Choose a tour…</option>
-                        <option value="North Bimini Historical Tour">North Bimini Historical Tour</option>
-                        <option value="South Bimini Tour">South Bimini Tour</option>
-                        <option value="Full Bimini Experience">Full Bimini Experience</option>
-                        <option value="Golf Cart Guided Tour">Golf Cart Guided Tour</option>
-                        <option value="Golf Cart Orientation">Golf Cart Orientation</option>
-                        <option value="Eat Like a Local Food Tour">Eat Like a Local Food Tour</option>
-                        <option value="Bimini Beach Experience">Bimini Beach Experience</option>
-                        <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
-                        <option value="Private VIP Custom Tour">Private VIP Custom Tour</option>
-                        <option value="Transportation / VIP Service">Transportation / VIP Service</option>
-                        <option value="Professional Partner / DMC">Professional Partner / DMC</option>
-                        <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="tourSelect">Select a Tour <span class="required">*</span></label>
+                        <select id="tourSelect" name="Tour" required>
+                            <option value="" disabled selected>Choose a tour…</option>
+                            <optgroup label="Core Experiences">
+                                <option value="North Bimini Heritage Tour">North Bimini Heritage Tour</option>
+                                <option value="South Bimini Tour">South Bimini: Ponce de León</option>
+                                <option value="Full Bimini Experience">Full Bimini Experience (Combination)</option>
+                                <option value="Bimini Food Experience">Bimini Food Experience</option>
+                                <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
+                            </optgroup>
+                            <optgroup label="Guided Golf Cart Tours">
+                                <option value="Guided Golf Cart Tour">Guided Golf Cart Tour</option>
+                            </optgroup>
+                            <optgroup label="Specialty Experiences">
+                                <option value="Private VIP Custom Tour">Bimini Your Way (Private)</option>
+                                <option value="Bimini Beach Experience">Bimini Beach Experience</option>
+                                <option value="Transportation / VIP Service">Transportation / VIP Service</option>
+                                <option value="Professional Partner / DMC">Professional Partner / DMC</option>
+                                <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
+                            </optgroup>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group form-group-full">
@@ -331,10 +348,11 @@
         const name   = form.Name.value.trim();
         const email  = form.Email.value.trim();
         const guests = form.Guests.value.trim();
+        const ages   = form.AgeRange.value;
         const date   = dateInput.dataset.iso || '';
         const tour   = form.Tour.value;
         const notes  = form.Notes.value.trim();
-        if (!name || !email || !guests || !date || !tour) {
+        if (!name || !email || !guests || !date || !tour || !ages) {
             if (!date) dateInput.style.borderColor = '#ef4444';
             form.reportValidity(); return;
         }
@@ -342,7 +360,7 @@
         const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         const subject = `Tour Booking: ${name} — ${tour}`;
         if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
+            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nAge Range: ${ages}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
             window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
             showSuccess(); return;
         }
@@ -351,12 +369,13 @@
             fd.append('_subject', subject); fd.append('_replyto', email);
             fd.append('Source', 'Booking Form'); fd.append('Name', name);
             fd.append('Email', email); fd.append('Guests', guests);
+            fd.append('Age Range', ages);
             fd.append('Date', formattedDate); fd.append('Tour', tour);
             fd.append('Notes', notes || 'None');
             const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
             if (res.ok) { showSuccess(); } else { throw new Error(); }
         } catch {
-            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
+            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nAge Range: ${ages}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
             window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
             showSuccess();
         }
