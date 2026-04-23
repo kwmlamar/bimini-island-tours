@@ -4,7 +4,7 @@
    Fonts: Cormorant Garamond (display) · Outfit (body)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Pinyon+Script&display=swap');
 
 /* ── DESIGN TOKENS ──────────────────────────────────────── */
 :root {
@@ -23,6 +23,7 @@
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body:    'Outfit', system-ui, sans-serif;
+    --font-script:  'Pinyon Script', cursive;
 
     --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
     --transition: 0.35s var(--ease-out);
@@ -2060,74 +2061,74 @@ body.booking-split-page {
 /* Heading over photo — centered in photo area */
 .bsplit-hero-text {
     position: absolute; z-index: 2;
-    top: 50%; left: 0; right: 0;
-    transform: translateY(-60%);
-    padding: 0 clamp(2rem, 5vw, 3.5rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    top: 42%; left: 0; right: 0;
+    transform: translateY(-50%);
+    padding: 0 clamp(2rem, 5vw, 5rem);
+    text-align: center;
 }
 
 .bsplit-eyebrow {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--aqua);
+    color: var(--white);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    display: block;
 }
 
 .bsplit-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 4.8vw, 4.2rem);
-    font-weight: 300;
-    line-height: 1.08;
-    color: var(--white);
-}
-.bsplit-heading em {
-    font-style: italic;
+    font-family: var(--font-script);
+    font-size: clamp(4.5rem, 9vw, 8.5rem);
     font-weight: 400;
-    color: var(--aqua-lt);
+    line-height: 0.85;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 15px rgba(0,0,0,0.2));
 }
 
 /* Dark frosted contact panel at bottom — curved top corners like Amali */
 .bsplit-contact-panel {
-    position: relative; z-index: 2;
-    background: rgba(10,22,40,0.76);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 20px 20px 0 0;
-    padding: clamp(1.4rem, 3.5vh, 2rem) clamp(2rem, 5vw, 3.5rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
+    position: absolute; bottom: 0; left: 0; width: 100%; z-index: 2;
+    background: linear-gradient(to top, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.72) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px 40px 0 0;
+    padding: clamp(2.5rem, 6vh, 4rem) clamp(2rem, 6vw, 5rem);
 }
 
 .bsplit-contact-label {
-    font-size: 0.67rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: var(--white);
+    opacity: 0.75;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .bsplit-contacts {
     display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
 }
 
 .bsplit-contact-item {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.72);
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
     text-decoration: none;
-    transition: color 0.22s;
+    transition: color 0.3s;
 }
-.bsplit-contact-item svg { flex-shrink: 0; color: var(--aqua); opacity: 0.9; }
-.bsplit-contact-item:hover { color: var(--aqua); }
+.bsplit-contact-item svg { flex-shrink: 0; color: var(--aqua); opacity: 0.95; }
+.bsplit-contact-item:hover { color: var(--aqua-lt); }
 
 /* ── RIGHT: Form panel ─────────────────────────────────────── */
 .bsplit-right {
@@ -2221,30 +2222,30 @@ body.booking-split-page {
     padding-right: 2.75rem;
 }
 
-/* Submit — aqua pill with arrow, matching site theme */
+/* Submit — dark pill with arrow, matching Amali reference */
 .booking-split-page .btn-booking-submit {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background: var(--aqua);
-    color: var(--navy);
+    background: #1a1e26;
+    color: var(--white);
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 0.9rem 0.9rem 0.9rem 1.75rem;
+    padding: 0.9rem 0.9rem 0.9rem 2rem;
     border-radius: var(--radius-pill);
     border: none;
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
-    margin-top: 0.25rem;
+    margin-top: 1rem;
 }
 .booking-split-page .btn-booking-submit:hover {
-    background: var(--aqua-dk);
+    background: var(--navy);
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(30,201,194,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 .booking-split-page .btn-booking-submit:disabled {
     opacity: 0.55;
@@ -2252,8 +2253,8 @@ body.booking-split-page {
     transform: none;
 }
 .btn-booking-arrow {
-    width: 36px; height: 36px;
-    background: rgba(10,22,40,0.12);
+    width: 40px; height: 40px;
+    background: rgba(74, 88, 112, 0.4);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
