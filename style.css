@@ -2091,7 +2091,7 @@ body.booking-split-page {
 
 /* Dark frosted contact panel at bottom — curved top corners like Amali */
 .bsplit-contact-panel {
-    position: absolute; bottom: 2rem; left: 2rem; right: 2rem; z-index: 2;
+    position: absolute; bottom: 8rem; left: 2rem; right: 2rem; z-index: 2;
     background: linear-gradient(to top, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.72) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
