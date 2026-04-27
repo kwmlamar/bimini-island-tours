@@ -218,7 +218,7 @@ ul   { list-style: none; }
 .mob-logo-wrap { padding: 0.5rem 0; }
 .mob-logo {
     height: 40px; width: auto;
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 
 .mob-links { display: flex; flex-direction: column; gap: 0; flex: 1; }
@@ -264,12 +264,12 @@ ul   { list-style: none; }
 .nav-logo-wrap { flex-shrink: 0; }
 .nav-logo {
     height: 44px; width: auto;
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(1);
     transition: filter 0.4s;
 }
 #navbar.scrolled .nav-logo {
     /* Colorize logo to --aqua #00B8C8 */
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 
 .nav-links {
@@ -1001,7 +1001,7 @@ ul   { list-style: none; }
 
 .footer-logo {
     height: 44px; width: auto; margin-bottom: 1rem;
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 .footer-tagline {
     font-family: var(--font-body); font-size: 0.9rem;
@@ -1065,7 +1065,7 @@ body.inner-page #navbar {
     box-shadow: 0 1px 24px rgba(10,22,40,0.07);
 }
 body.inner-page .nav-logo {
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 body.inner-page .nav-links a { color: var(--text-dark); }
 body.inner-page .nav-links a:hover { color: var(--aqua-dk); }
@@ -1213,7 +1213,7 @@ body.inner-page .btn-pill--ghost:hover {
 }
 .svc-card-img--logo {
     object-fit: contain; padding: 2.5rem; opacity: 0.9;
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 .svc-card:hover .svc-card-img:not(.svc-card-img--logo) { transform: scale(1.06); }
 .svc-card-overlay {
@@ -1925,7 +1925,7 @@ body.booking-split-page #navbar {
     height: 110px;
     width: auto;
     /* Targets --aqua-dk (#0DABA4) to match the italic "Bimini." text */
-    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
+    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
 }
 
 /* Main grid */
