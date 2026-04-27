@@ -1,6 +1,6 @@
 /* ============================================================
    BIMINI ISLAND TOURS — Amali-Level Light Theme
-   Palette: Aqua #1EC9C2 · Sand Cream · White · Navy text only
+   Palette: Caribbean Blue #00B8C8 · Sand Cream · White · Navy text only
    Fonts: Cormorant Garamond (display) · Outfit (body)
    ============================================================ */
 
@@ -8,14 +8,17 @@
 
 /* ── DESIGN TOKENS ──────────────────────────────────────── */
 :root {
-    --aqua:       #1EC9C2;
-    --aqua-dk:    #0DABA4;
-    --aqua-lt:    #A8EDEA;
-    --aqua-glow:  rgba(30, 201, 194, 0.15);
+    --aqua:       #00B8C8;
+    --aqua-dk:    #008E9C;
+    --aqua-lt:    #ADE8EE;
+    --aqua-glow:  rgba(0, 184, 200, 0.15);
     --navy:       #0A1628;   /* TEXT ONLY — never a section background */
     --gold:       #C8A045;
-    --cream:      #F5F3EE;
-    --cream-dk:   #EAE8E2;
+    --cream:      #F5F2EB;
+    --cream-dk:   #EAE6DD;
+    --cream-bg:
+        linear-gradient(rgba(245,242,235,0.88), rgba(245,242,235,0.88)),
+        url('images/sand-texture.webp') center / cover fixed;
     --white:      #FFFFFF;
     --text-dark:  #0A1628;
     --text-mid:   #4A5870;
@@ -45,7 +48,7 @@ body {
     font-size: 1rem;
     line-height: 1.65;
     color: var(--text-dark);
-    background: var(--cream);
+    background: var(--cream-bg);
     overflow-x: hidden;
 }
 img  { display: block; max-width: 100%; height: auto; }
@@ -78,7 +81,7 @@ ul   { list-style: none; }
     font-family: var(--font-body);
     font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--aqua-dk);
+    color: var(--aqua);
     margin-bottom: 0.9rem;
 }
 
@@ -98,7 +101,7 @@ ul   { list-style: none; }
 
 /* Aqua fill */
 .btn-pill--aqua {
-    background: var(--aqua); color: var(--navy);
+    background: var(--aqua); color: var(--white);
     border-color: var(--aqua);
 }
 .btn-pill--aqua:hover { background: var(--aqua-dk); border-color: var(--aqua-dk); opacity: 1; }
@@ -215,7 +218,7 @@ ul   { list-style: none; }
 .mob-logo-wrap { padding: 0.5rem 0; }
 .mob-logo {
     height: 40px; width: auto;
-    filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(2000%) hue-rotate(137deg);
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 
 .mob-links { display: flex; flex-direction: column; gap: 0; flex: 1; }
@@ -231,7 +234,7 @@ ul   { list-style: none; }
 .mob-cta-btn {
     display: block; text-align: center;
     padding: 0.9rem 1.5rem;
-    background: var(--aqua); color: var(--navy);
+    background: var(--aqua); color: var(--white);
     border-radius: var(--radius-pill);
     font-family: var(--font-body); font-weight: 700; font-size: 0.88rem;
     transition: background 0.25s;
@@ -261,12 +264,12 @@ ul   { list-style: none; }
 .nav-logo-wrap { flex-shrink: 0; }
 .nav-logo {
     height: 44px; width: auto;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
     transition: filter 0.4s;
 }
 #navbar.scrolled .nav-logo {
-    /* Colorize logo to --aqua #1EC9C2 */
-    filter: brightness(0) invert(50%) sepia(100%) saturate(380%) hue-rotate(134deg) brightness(76%);
+    /* Colorize logo to --aqua #00B8C8 */
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 
 .nav-links {
@@ -360,7 +363,8 @@ ul   { list-style: none; }
 }
 .hero-title em {
     font-style: italic;
-    color: var(--aqua-lt);
+    font-weight: 300;
+    color: var(--aqua);
 }
 
 .hero-sub {
@@ -431,7 +435,7 @@ ul   { list-style: none; }
     transition: color 0.2s;
 }
 .trust-pub:hover { color: var(--aqua-dk); }
-.trust-pub em { font-style: italic; color: var(--aqua-dk); }
+.trust-pub em { font-style: italic; color: var(--aqua); }
 .trust-dot { color: var(--text-muted); font-size: 1rem; }
 .trust-divider {
     width: 1px; height: 44px;
@@ -493,7 +497,7 @@ ul   { list-style: none; }
     color: var(--navy);
     margin-bottom: 1.5rem;
 }
-.story-heading em { font-style: italic; color: var(--aqua-dk); }
+.story-heading em { font-style: italic; color: var(--aqua); }
 
 .story-body {
     font-family: var(--font-body);
@@ -517,7 +521,7 @@ ul   { list-style: none; }
 .stat-num {
     font-family: var(--font-display);
     font-size: 1.8rem; font-weight: 500;
-    color: var(--aqua-dk); line-height: 1;
+    color: var(--aqua); line-height: 1;
 }
 .stat-label {
     font-family: var(--font-body);
@@ -574,7 +578,7 @@ ul   { list-style: none; }
 @media (max-width: 480px) { .highlights-grid { grid-template-columns: 1fr; } }
 
 .highlight-item {
-    background: var(--cream);
+    background: var(--white);
     border-radius: var(--radius-md);
     padding: 1.75rem 1.5rem;
     display: flex; flex-direction: column; gap: 0.5rem;
@@ -600,7 +604,7 @@ ul   { list-style: none; }
    TOURS SECTION
    ============================================================ */
 .tours-section {
-    background: var(--cream);
+    background: var(--cream-bg);
     padding: var(--section-v) 0;
 }
 .tours-container {
@@ -619,14 +623,14 @@ ul   { list-style: none; }
     font-weight: 400; line-height: 1.1; color: var(--navy);
     margin-top: 0.5rem;
 }
-.tours-heading em { font-style: italic; color: var(--aqua-dk); }
+.tours-heading em { font-style: italic; color: var(--aqua); }
 
 .view-all-link {
     display: flex; align-items: center; gap: 0.5rem;
     font-family: var(--font-body);
     font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--aqua-dk);
+    color: var(--aqua);
     transition: gap 0.25s, color 0.2s;
     white-space: nowrap;
 }
@@ -742,7 +746,7 @@ ul   { list-style: none; }
     font-weight: 400; color: var(--navy); line-height: 1.15;
     margin-bottom: 1rem;
 }
-.vtour-heading em { font-style: italic; color: var(--aqua-dk); }
+.vtour-heading em { font-style: italic; color: var(--aqua); }
 .vtour-sub {
     font-family: var(--font-body);
     font-size: 1rem; font-weight: 500;
@@ -778,7 +782,7 @@ ul   { list-style: none; }
    MAX — MEET YOUR GUIDE
    ============================================================ */
 .max-section {
-    background: var(--cream);
+    background: var(--cream-bg);
     padding: var(--section-v) var(--gutter);
 }
 .max-container {
@@ -813,7 +817,7 @@ ul   { list-style: none; }
     font-weight: 400; color: var(--navy);
     line-height: 1.15; margin-bottom: 1.5rem;
 }
-.max-heading em { font-style: italic; color: var(--aqua-dk); }
+.max-heading em { font-style: italic; color: var(--aqua); }
 
 .max-quote {
     font-family: var(--font-display);
@@ -851,7 +855,7 @@ ul   { list-style: none; }
     font-weight: 400; color: var(--navy);
     line-height: 1.15; margin-bottom: 0.75rem;
 }
-.reviews-heading em { font-style: italic; color: var(--aqua-dk); }
+.reviews-heading em { font-style: italic; color: var(--aqua); }
 .reviews-sub {
     font-family: var(--font-body); font-size: 0.9rem;
     color: var(--text-muted);
@@ -923,7 +927,7 @@ ul   { list-style: none; }
    ============================================================ */
 .cta-section {
     background:
-        linear-gradient(135deg, rgba(30,201,194,0.62) 0%, rgba(13,171,164,0.58) 100%),
+        linear-gradient(135deg, rgba(0,184,200,0.62) 0%, rgba(0,142,156,0.58) 100%),
         url('images/clear-water-bg.webp') center / cover no-repeat;
     padding: var(--section-v) var(--gutter);
     text-align: center;
@@ -964,21 +968,21 @@ ul   { list-style: none; }
    ============================================================ */
 .footer {
     position: relative;
-    background: var(--cream-dk);
-    border-top: 1px solid rgba(10,22,40,0.07);
+    background: var(--navy);
+    border-top: none;
     padding: clamp(4rem, 8vw, 6rem) var(--gutter) 2.5rem;
     overflow: hidden;
 }
 
-/* Texture Overlay */
+/* Subtle noise texture on dark */
 .footer::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/sand-texture.webp');
+    background-image: url('images/footer_bg.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.12;
+    opacity: 0.02;
     pointer-events: none;
     z-index: 0;
 }
@@ -997,26 +1001,26 @@ ul   { list-style: none; }
 
 .footer-logo {
     height: 44px; width: auto; margin-bottom: 1rem;
-    filter: brightness(0) invert(50%) sepia(100%) saturate(380%) hue-rotate(134deg) brightness(76%);
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 .footer-tagline {
     font-family: var(--font-body); font-size: 0.9rem;
-    color: var(--text-mid); line-height: 1.65;
+    color: rgba(255,255,255,0.55); line-height: 1.65;
     max-width: 280px; margin-bottom: 1.5rem;
 }
 
 .footer-social { display: flex; gap: 0.75rem; }
 .social-icon {
     width: 40px; height: 40px; border-radius: 50%;
-    border: 1px solid rgba(10,22,40,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
     display: flex; align-items: center; justify-content: center;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.6);
     transition: border-color 0.25s, color 0.25s, background 0.25s;
 }
 .social-icon:hover {
     border-color: var(--aqua);
-    color: var(--aqua-dk);
-    background: var(--aqua-glow);
+    color: var(--aqua-lt);
+    background: rgba(0,184,200,0.15);
 }
 
 .footer-right { display: flex; gap: 3rem; justify-content: flex-end; }
@@ -1024,16 +1028,16 @@ ul   { list-style: none; }
 .footer-col-title {
     font-family: var(--font-body); font-size: 0.7rem;
     font-weight: 700; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--aqua-dk);
+    text-transform: uppercase; color: var(--aqua);
     margin-bottom: 1.2rem;
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.65rem; }
 .footer-col li, .footer-col a {
     font-family: var(--font-body); font-size: 0.88rem;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.55);
     transition: color 0.2s;
 }
-.footer-col a:hover { color: var(--aqua-dk); }
+.footer-col a:hover { color: var(--white); }
 
 .footer-bottom {
     max-width: min(1200px, 92vw); margin: 0 auto;
@@ -1043,10 +1047,10 @@ ul   { list-style: none; }
 }
 .footer-bottom p {
     font-family: var(--font-body); font-size: 0.78rem;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.3);
 }
-.footer-bottom a { color: var(--aqua-dk); transition: color 0.2s; }
-.footer-bottom a:hover { color: var(--aqua); }
+.footer-bottom a { color: var(--aqua); transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--white); }
 
 /* ============================================================
    INNER PAGE — navbar always frosted, body offset
@@ -1061,7 +1065,7 @@ body.inner-page #navbar {
     box-shadow: 0 1px 24px rgba(10,22,40,0.07);
 }
 body.inner-page .nav-logo {
-    filter: brightness(0) invert(50%) sepia(100%) saturate(380%) hue-rotate(134deg) brightness(76%);
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 body.inner-page .nav-links a { color: var(--text-dark); }
 body.inner-page .nav-links a:hover { color: var(--aqua-dk); }
@@ -1076,7 +1080,7 @@ body.inner-page .btn-pill--ghost:hover {
     border-color: var(--navy);
 }
 /* Active nav link */
-.nav-active { color: var(--aqua-dk) !important; }
+.nav-active { color: var(--aqua) !important; }
 
 /* ============================================================
    PAGE BANNER — cinematic left-aligned inner hero
@@ -1154,7 +1158,7 @@ body.inner-page .btn-pill--ghost:hover {
     padding: var(--section-v) 0;
 }
 .tours-pg-section--white { background: var(--white); }
-.tours-pg-section--cream { background: var(--cream); }
+.tours-pg-section--cream { background: var(--cream-bg); }
 
 .tours-pg-container {
     max-width: min(1380px, 92vw); margin: 0 auto;
@@ -1171,7 +1175,7 @@ body.inner-page .btn-pill--ghost:hover {
     font-weight: 400; line-height: 1.12; color: var(--navy);
     margin-top: 0.5rem; margin-bottom: 0.75rem;
 }
-.tours-pg-heading em { font-style: italic; color: var(--aqua-dk); }
+.tours-pg-heading em { font-style: italic; color: var(--aqua); }
 .tours-pg-sub {
     font-family: var(--font-body); font-size: 1rem;
     color: var(--text-mid); max-width: 52ch; margin: 0 auto;
@@ -1208,7 +1212,8 @@ body.inner-page .btn-pill--ghost:hover {
     transition: transform 0.55s var(--ease-out);
 }
 .svc-card-img--logo {
-    object-fit: contain; padding: 2.5rem; opacity: 0.7;
+    object-fit: contain; padding: 2.5rem; opacity: 0.9;
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 .svc-card:hover .svc-card-img:not(.svc-card-img--logo) { transform: scale(1.06); }
 .svc-card-overlay {
@@ -1357,12 +1362,12 @@ body.inner-page .btn-pill--ghost:hover {
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 2px solid var(--aqua);
-    box-shadow: 0 8px 40px rgba(30,201,194,0.12);
+    box-shadow: 0 8px 40px rgba(0,184,200,0.12);
     display: grid; grid-template-columns: 1fr 1fr;
     min-height: 380px;
     transition: box-shadow 0.4s;
 }
-.tcard-featured:hover { box-shadow: 0 20px 60px rgba(30,201,194,0.18); }
+.tcard-featured:hover { box-shadow: 0 20px 60px rgba(0,184,200,0.18); }
 @media (max-width: 768px) { .tcard-featured { grid-template-columns: 1fr; } }
 
 .tcard-featured-img-wrap {
@@ -1401,7 +1406,7 @@ body.inner-page .btn-pill--ghost:hover {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 400; line-height: 1.15; color: var(--navy);
 }
-.tcard-featured-title em { font-style: italic; color: var(--aqua-dk); }
+.tcard-featured-title em { font-style: italic; color: var(--aqua); }
 .tcard-featured-prices {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0;
     border-top: 1px solid rgba(10,22,40,0.07);
@@ -1418,15 +1423,15 @@ body.inner-page .btn-pill--ghost:hover {
    ============================================================ */
 .extras-callout {
     margin-top: 3.5rem;
-    background: rgba(30,201,194,0.06);
-    border: 1px solid rgba(30,201,194,0.2);
-    border-left: 4px solid var(--aqua);
+    background: var(--white);
+    border: 1px solid rgba(10,22,40,0.08);
+    border-top: 3px solid var(--aqua);
     border-radius: var(--radius-lg);
     padding: 2.5rem 3rem;
-    display: grid; grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: auto 1fr;
     gap: 3rem; align-items: center;
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .extras-callout { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
 }
 .extras-callout-heading {
@@ -1434,27 +1439,29 @@ body.inner-page .btn-pill--ghost:hover {
     font-size: 1.8rem; font-weight: 400; color: var(--navy);
     line-height: 1.2; margin-bottom: 0.4rem;
 }
-.extras-callout-heading em { font-style: italic; color: var(--aqua-dk); }
+.extras-callout-heading em { font-style: italic; color: var(--aqua); }
 .extras-callout-sub {
     font-family: var(--font-body); font-size: 0.9rem;
     color: var(--text-mid);
 }
 .extras-list {
-    display: flex; flex-direction: column; gap: 0.75rem;
+    display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.75rem;
+    align-items: center;
 }
 .extras-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid rgba(10,22,40,0.07);
+    display: flex; flex-direction: column; gap: 0.18rem;
+    background: var(--cream);
+    border: 1px solid rgba(10,22,40,0.07);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.4rem;
 }
-.extras-item:last-child { border-bottom: none; }
 .extras-name {
-    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    font-family: var(--font-body); font-size: 0.88rem; font-weight: 500;
     color: var(--navy);
 }
 .extras-price {
-    font-family: var(--font-body); font-size: 0.88rem;
-    color: var(--aqua-dk); font-weight: 600;
+    font-family: var(--font-body); font-size: 0.76rem;
+    color: var(--aqua); font-weight: 600;
 }
 
 /* ── HIDE TROPICHAT WIDGET ───────────────────────────────── */
@@ -1647,7 +1654,7 @@ body.inner-page .btn-pill--ghost:hover {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--aqua);
-    box-shadow: 0 0 0 3px rgba(30,201,194,0.12);
+    box-shadow: 0 0 0 3px rgba(0,184,200,0.12);
     background: var(--white);
 }
 .form-group select {
@@ -1715,7 +1722,7 @@ body.inner-page .btn-pill--ghost:hover {
 /* Submit Button */
 .btn-booking-submit {
     display: block; width: 100%;
-    background: var(--aqua); color: var(--navy);
+    background: var(--aqua); color: var(--white);
     font-family: var(--font-body); font-size: 0.88rem; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
     padding: 1rem 2rem; border-radius: var(--radius-pill);
@@ -1724,7 +1731,7 @@ body.inner-page .btn-pill--ghost:hover {
 }
 .btn-booking-submit:hover {
     background: var(--aqua-dk); transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(30,201,194,0.28);
+    box-shadow: 0 8px 28px rgba(0,184,200,0.28);
 }
 .btn-booking-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
 
@@ -1735,13 +1742,13 @@ body.inner-page .btn-pill--ghost:hover {
 }
 .booking-success-icon {
     width: 68px; height: 68px; border-radius: 50%;
-    background: rgba(30,201,194,0.1);
+    background: rgba(0,184,200,0.1);
     display: flex; align-items: center; justify-content: center;
     color: var(--aqua-dk);
 }
 .booking-success h3 {
     font-family: var(--font-display); font-size: 1.9rem; font-weight: 400;
-    color: var(--navy);
+    color: var(--white);
 }
 .booking-success p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
 .btn-booking-secondary {
@@ -1789,7 +1796,7 @@ body.inner-page .btn-pill--ghost:hover {
 }
 .booking-chat-icon {
     width: 48px; height: 48px; border-radius: 50%;
-    background: rgba(30,201,194,0.14);
+    background: rgba(0,184,200,0.14);
     display: flex; align-items: center; justify-content: center;
     color: var(--aqua); margin-bottom: 0.35rem;
 }
@@ -1918,7 +1925,7 @@ body.booking-split-page #navbar {
     height: 110px;
     width: auto;
     /* Targets --aqua-dk (#0DABA4) to match the italic "Bimini." text */
-    filter: brightness(0) invert(50%) sepia(100%) saturate(380%) hue-rotate(134deg) brightness(76%);
+    filter: brightness(0) invert(62%) sepia(74%) saturate(636%) hue-rotate(149deg) brightness(82%) contrast(101%);
 }
 
 /* Main grid */
@@ -2009,7 +2016,7 @@ body.booking-split-page #navbar {
     gap: 1rem;
     flex-wrap: wrap;
 }
-.bfooter-bottom a { color: var(--aqua-dk); text-decoration: none; }
+.bfooter-bottom a { color: var(--aqua); text-decoration: none; }
 .bfooter-bottom a:hover { text-decoration: underline; }
 
 /* Body bg matches footer colour — no white gap behind the curves */
@@ -2230,7 +2237,7 @@ body.booking-split-page {
     justify-content: space-between;
     width: 100%;
     background: var(--aqua);
-    color: var(--navy);
+    color: var(--white);
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 700;
@@ -2246,7 +2253,7 @@ body.booking-split-page {
 .booking-split-page .btn-booking-submit:hover {
     background: var(--aqua-dk);
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(30,201,194,0.3);
+    box-shadow: 0 8px 28px rgba(0,184,200,0.3);
 }
 .booking-split-page .btn-booking-submit:disabled {
     opacity: 0.55;
