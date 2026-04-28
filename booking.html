@@ -13,6 +13,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="script.js" defer></script>
+    <!-- ── Google Analytics 4 ── G-Z5FGHHMTJQ ── -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5FGHHMTJQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Z5FGHHMTJQ');
+    </script>
 </head>
 <body class="inner-page booking-split-page">
 
@@ -274,8 +282,8 @@
 <!-- ── BOOKING FORM LOGIC ────────────────────────────────────── -->
 <script>
 (function () {
-    const FORMSPREE_ID  = 'YOUR_FORMSPREE_ID';
-    const OWNER_EMAIL   = 'info@tourbimini.com';
+    const W3F_KEY    = 'fa694aea-98a8-40cd-89e1-c8b595974538'; // Web3Forms access key
+    const OWNER_EMAIL = 'classicalsineus@gmail.com'; // ← swap to info@tourbimini.com when going live
 
     const form      = document.getElementById('bookingForm');
     const successEl = document.getElementById('bookingSuccess');
@@ -359,22 +367,34 @@
         submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
         const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         const subject = `Tour Booking: ${name} — ${tour}`;
-        if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-            const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nAge Range: ${ages}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
-            window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
-            showSuccess(); return;
-        }
         try {
-            const fd = new FormData();
-            fd.append('_subject', subject); fd.append('_replyto', email);
-            fd.append('Source', 'Booking Form'); fd.append('Name', name);
-            fd.append('Email', email); fd.append('Guests', guests);
-            fd.append('Age Range', ages);
-            fd.append('Date', formattedDate); fd.append('Tour', tour);
-            fd.append('Notes', notes || 'None');
-            const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
-            if (res.ok) { showSuccess(); } else { throw new Error(); }
-        } catch {
+            const payload = {
+                access_key: W3F_KEY,
+                subject:    subject,
+                from_name:  'Bimini Island Tours Booking Form',
+                replyto:    email,
+                Name:       name,
+                Email:      email,
+                Guests:     guests,
+                'Age Range': ages,
+                Date:       formattedDate,
+                Tour:       tour,
+                Notes:      notes || 'None'
+            };
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body:    JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.success) {
+                showSuccess();
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        } catch (err) {
+            console.error('Form error:', err);
+            // Fallback: open mailto so no enquiry is ever lost
             const body = `Name: ${name}\nEmail: ${email}\nGuests: ${guests}\nAge Range: ${ages}\nDate: ${formattedDate}\nTour: ${tour}\nNotes: ${notes || 'None'}`;
             window.open(`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
             showSuccess();
@@ -388,5 +408,6 @@
 })();
 </script>
 
+<script src="tropichat.js"></script>
 </body>
 </html>

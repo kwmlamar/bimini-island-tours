@@ -1464,13 +1464,6 @@ body.inner-page .btn-pill--ghost:hover {
     color: var(--aqua); font-weight: 600;
 }
 
-/* ── HIDE TROPICHAT WIDGET ───────────────────────────────── */
-[class*="tropichat"], [id*="tropichat"],
-[class*="trop-chat"], [id*="trop-chat"] {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
 
 /* ============================================================
    GALLERY PAGE
