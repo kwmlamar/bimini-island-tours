@@ -1721,6 +1721,7 @@ body.inner-page .btn-pill--ghost:hover {
 .tcard-featured-header {
     display: flex; justify-content: space-between; align-items: flex-start;
     gap: 1rem; flex-wrap: wrap;
+    position: relative; /* Contain duration badges */
 }
 .tcard-featured-title {
     font-family: var(--font-display);
