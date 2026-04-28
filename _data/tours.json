@@ -1,0 +1,225 @@
+{
+  "categories": [
+    {
+      "id": "core",
+      "label": "Core Tour Experiences",
+      "tours": [
+        {
+          "id": "full-bimini-experience",
+          "name": "Combination Tour — Full Bimini Experience",
+          "duration": "4 Hours",
+          "image": "images/Combination tour.avif",
+          "image_position": "center 38%",
+          "description": "The absolute best of North and South Bimini combined into one unforgettable four-hour journey. From the Dolphin House to the Fountain of Youth — see it all.",
+          "featured": false,
+          "booking_param": "Full Bimini Experience",
+          "cta_label": "Check Availability",
+          "pricing": [
+            { "label": "Adults", "value": "$199 / person" },
+            { "label": "Children (6–11)", "value": "$150 / person" },
+            { "label": "Private (2 maximum)", "value": "$475 total" },
+            { "label": "Private Group (min 4)", "value": "$225 / person" }
+          ]
+        },
+        {
+          "id": "south-bimini-tour",
+          "name": "South Bimini: Ponce de León Tour",
+          "duration": "2 Hours",
+          "image": "images/Ponce de Leon's South Bimini Island Tour.avif",
+          "image_position": "center center",
+          "description": "Explore the Fountain of Youth, Shell Beach, and the world-renowned Bimini Biological Shark Lab.",
+          "featured": false,
+          "booking_param": "South Bimini Tour",
+          "cta_label": "Check Availability",
+          "pricing": [
+            { "label": "Adults", "value": "$150 / person" },
+            { "label": "Children (6–11)", "value": "$110 / person" },
+            { "label": "Private (2 maximum)", "value": "$425 total" },
+            { "label": "Private Group (min 4)", "value": "$170 / person" }
+          ]
+        },
+        {
+          "id": "north-bimini-heritage",
+          "name": "North Bimini Heritage Tour",
+          "name_html": "North Bimini <em>Heritage Tour</em>",
+          "eyebrow": "Rich Heritage",
+          "duration": "2 Hours",
+          "image": "images/North Bimini Island Historical Tour.avif",
+          "image_position": "center center",
+          "description": "A relaxed journey through North Bimini's history, culture, and famous landmarks. Includes conch demonstration and insights into the island's unique legacy.",
+          "featured": true,
+          "featured_label": "Most Popular",
+          "booking_param": "North Bimini Historical Tour",
+          "cta_label": "Book This Tour",
+          "pricing": [
+            { "label": "Adults", "value": "$110 / person" },
+            { "label": "Children (6–11)", "value": "$75 / person" },
+            { "label": "Private (2 maximum)", "value": "$375 total" },
+            { "label": "Private Group (min 4)", "value": "$150 / person" }
+          ]
+        },
+        {
+          "id": "eat-like-a-local",
+          "name": "Eat Like a Local",
+          "duration": "3 Hours",
+          "image": "images/eat.jpg",
+          "image_position": "center 20%",
+          "description": "A deep dive into Bimini's culinary scene. Taste fresh conch, island bread, and local-only specialties.",
+          "featured": false,
+          "booking_param": "Eat Like a Local",
+          "cta_label": "Check Availability",
+          "pricing": [
+            { "label": "Adults", "value": "$175 / person" },
+            { "label": "Children (6–11)", "value": "$130 / person" },
+            { "label": "Private (2 maximum)", "value": "$450 total" },
+            { "label": "Private Group (min 4)", "value": "$190 / person" }
+          ]
+        },
+        {
+          "id": "sit-low-sightseeing",
+          "name": "Bimini Sit-Low Sightseeing",
+          "duration": "1 Hour",
+          "image": "images/sit-low-sightseeing.jpeg",
+          "image_position": "center 80%",
+          "description": "A quick but comprehensive orientation of Bimini's landmarks and beauty. Perfect for those on a tight schedule.",
+          "featured": false,
+          "booking_param": "Bimini Sit-Low Sightseeing",
+          "cta_label": "Check Availability",
+          "pricing": [
+            { "label": "Adults", "value": "$60 / person" },
+            { "label": "Children (6–11)", "value": "$30 / person" },
+            { "label": "Private (2 maximum)", "value": "$150 total" },
+            { "label": "Private Group (min 4)", "value": "$65 / person" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "golf_cart",
+      "label": "Golf Cart Experiences",
+      "tours": [
+        {
+          "id": "golf-cart-tour",
+          "name": "Guided Golf Cart Tour",
+          "duration": "2 Hours",
+          "image": "images/North Bimini Island Golf Cart Tour.avif",
+          "image_position": "center center",
+          "description": "A fun and efficient way to see North Bimini with a certified guide leading the way on golf carts.",
+          "featured": false,
+          "booking_param": "Golf Cart Guided Tour",
+          "cta_label": "Check Availability",
+          "pricing": [
+            { "label": "Fully Guided Tour", "value": "Starting at $350" },
+            { "label": "Bimini Orientation (1 hr)", "value": "Starting at $199" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "specialty",
+      "label": "Specialty Experiences",
+      "tours": [
+        {
+          "id": "private-vip",
+          "name": "Bimini Your Way Private",
+          "duration": null,
+          "image": "images/gallery18.jpg",
+          "image_position": "center center",
+          "description": "The ultimate high-touch experience. A 100% flexible itinerary built entirely around your interests and group.",
+          "featured": false,
+          "booking_param": "Private VIP Custom Tour",
+          "cta_label": "Inquire Now",
+          "pricing": [
+            { "label": "Private / Custom", "value": "Upon request" }
+          ]
+        },
+        {
+          "id": "beach-experience",
+          "name": "Bimini Beach Experience",
+          "duration": null,
+          "image": "images/private-beach-aerial-bimini.webp",
+          "image_position": "center center",
+          "description": "Relax on Bimini's pristine sands. We handle the transport and setup so you can simply enjoy the water.",
+          "featured": false,
+          "booking_param": "Bimini Beach Experience",
+          "cta_label": "Inquire Now",
+          "pricing": [
+            { "label": "Beach Experience", "value": "Upon request" }
+          ]
+        },
+        {
+          "id": "corporate-groups",
+          "name": "Corporate & Large Groups",
+          "duration": null,
+          "image": "images/gallery8.avif",
+          "image_position": "center center",
+          "description": "Professional handling for large parties. Includes full coordination, logistics, and optional add-ons.",
+          "featured": false,
+          "booking_param": "Professional Partner / DMC",
+          "cta_label": "Inquire Now",
+          "pricing": [
+            { "label": "10+ Persons", "value": "Custom pricing" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "professional",
+      "label": "Professional Services",
+      "tours": [
+        {
+          "id": "transportation",
+          "name": "Transportation Services",
+          "duration": null,
+          "image": "images/taxi.jpeg",
+          "image_position": "center 20%",
+          "description": "Reliable island transportation for individuals, families, and groups across Bimini. Our fleet and network ensure you never miss a connection.",
+          "featured": false,
+          "booking_param": "Transportation / VIP Service",
+          "cta_label": "Request Transport",
+          "includes": ["Island-wide coverage", "Group coordination", "Reliable scheduling"],
+          "pricing": []
+        },
+        {
+          "id": "vip-pickup",
+          "name": "VIP Pickup & Meet and Greet",
+          "duration": null,
+          "image": "images/gallery10.avif",
+          "image_position": "center center",
+          "description": "Personalized airport, dock, or hotel meet-and-greet service with priority pickup and assistance. Start your Bimini visit with ease.",
+          "featured": false,
+          "booking_param": "Transportation / VIP Service",
+          "cta_label": "Book VIP Service",
+          "includes": ["Personalized greeting", "Priority pickup", "Luggage assistance"],
+          "pricing": []
+        },
+        {
+          "id": "dmc",
+          "name": "Destination Management (DMC)",
+          "duration": null,
+          "image": null,
+          "image_position": null,
+          "description": "Full destination support including tour planning, logistics, group coordination, and on-island arrangements for events and corporate needs.",
+          "featured": false,
+          "booking_param": "Professional Partner / DMC",
+          "cta_label": "Inquire for DMC",
+          "includes": ["Group logistics coordination", "Event planning support", "On-island arrangements"],
+          "pricing": []
+        },
+        {
+          "id": "travel-agent",
+          "name": "Travel Agent & Cruise Partner Services",
+          "duration": null,
+          "image": null,
+          "image_position": null,
+          "description": "We work closely with travel agents, cruise lines, and tourism partners to provide customized tour packages, group handling, and seamless shore excursions.",
+          "featured": false,
+          "booking_param": "Professional Partner / DMC",
+          "cta_label": "Partner With Us",
+          "includes": ["Customized tour packages", "Group handling specialists", "Seamless shore excursions"],
+          "pricing": []
+        }
+      ]
+    }
+  ]
+}

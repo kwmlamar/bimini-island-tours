@@ -165,23 +165,8 @@
                         <label for="tourSelect">Select a Tour <span class="required">*</span></label>
                         <select id="tourSelect" name="Tour" required>
                             <option value="" disabled selected>Choose a tour…</option>
-                            <optgroup label="Core Experiences">
-                                <option value="North Bimini Heritage Tour">North Bimini Heritage Tour</option>
-                                <option value="South Bimini Tour">South Bimini: Ponce de León Tour</option>
-                                <option value="Full Bimini Experience">Full Bimini Experience (Combination)</option>
-                                <option value="Eat Like a Local">Eat Like a Local</option>
-                                <option value="Bimini Sit-Low Sightseeing">Bimini Sit-Low Sightseeing</option>
-                            </optgroup>
-                            <optgroup label="Guided Golf Cart Tours">
-                                <option value="Guided Golf Cart Tour">Guided Golf Cart Tour</option>
-                            </optgroup>
-                            <optgroup label="Specialty Experiences">
-                                <option value="Private VIP Custom Tour">Bimini Your Way (Private)</option>
-                                <option value="Bimini Beach Experience">Bimini Beach Experience</option>
-                                <option value="Transportation / VIP Service">Transportation / VIP Service</option>
-                                <option value="Professional Partner / DMC">Professional Partner / DMC</option>
-                                <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
-                            </optgroup>
+                            <!-- Options populated from _data/tours.json by booking-tours.js -->
+                            <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
                         </select>
                     </div>
                 </div>
@@ -279,6 +264,41 @@
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
 
+<!-- ── POPULATE TOUR SELECT FROM JSON ───────────────────────── -->
+<script>
+(async function () {
+    const select = document.getElementById('tourSelect');
+    if (!select) return;
+    try {
+        const res  = await fetch('_data/tours.json');
+        const data = await res.json();
+        const fallback = select.querySelector('option[value="Not sure yet — help me choose"]');
+
+        data.categories.forEach(category => {
+            const group = document.createElement('optgroup');
+            group.label = category.label;
+            category.tours.forEach(tour => {
+                const opt   = document.createElement('option');
+                opt.value   = tour.booking_param;
+                opt.textContent = tour.name;
+                group.appendChild(opt);
+            });
+            select.insertBefore(group, fallback);
+        });
+
+        // Re-apply ?tour= query param after dynamic population
+        const tourParam = new URLSearchParams(window.location.search).get('tour');
+        if (tourParam) {
+            for (let opt of select.options) {
+                if (opt.value === tourParam) { select.value = tourParam; break; }
+            }
+        }
+    } catch (e) {
+        console.warn('Could not load tour options dynamically:', e);
+    }
+})();
+</script>
+
 <!-- ── BOOKING FORM LOGIC ────────────────────────────────────── -->
 <script>
 (function () {
@@ -342,14 +362,6 @@
     dpNext.addEventListener('click', () => { dpMonth++; if (dpMonth > 11) { dpMonth = 0; dpYear++; } renderCalendar(); });
     document.addEventListener('click', (e) => { if (!dpWrap.contains(e.target)) dpDropdown.classList.remove('is-open'); });
     renderCalendar();
-
-    const tourParam = new URLSearchParams(window.location.search).get('tour');
-    const tourSelect = document.getElementById('tourSelect');
-    if (tourParam && tourSelect) {
-        for (let opt of tourSelect.options) {
-            if (opt.value === tourParam) { tourSelect.value = tourParam; break; }
-        }
-    }
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
