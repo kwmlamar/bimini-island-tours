@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+
+# Root skills folder (redundant)
+skills/
+
+# Ignore agent symlinks but keep .agents/skills
+.*
+!.agents/
+!.gitignore
+!.github/

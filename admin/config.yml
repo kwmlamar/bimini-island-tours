@@ -3,7 +3,7 @@ backend:
   repo: kwmlamar/bimini-island-tours
   branch: main
   auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_APP_CLIENT_ID  # ← Replace after creating OAuth App
+  app_id: Ov23lip7UEPbcUUNDYl5
 
 media_folder: images
 public_folder: /images
