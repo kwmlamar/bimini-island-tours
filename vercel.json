@@ -1,0 +1,16 @@
+{
+  "headers": [
+    {
+      "source": "/admin/config.yml",
+      "headers": [
+        { "key": "Content-Type", "value": "text/yaml; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/_data/(.*)",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
+    }
+  ]
+}
