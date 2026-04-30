@@ -2,8 +2,8 @@ backend:
   name: github
   repo: kwmlamar/bimini-island-tours
   branch: main
-  auth_type: pkce
-  app_id: Ov23lip7UEPbcUUNDYl5
+  base_url: https://tourbimini.com
+  auth_endpoint: /api/auth
 
 media_folder: images
 public_folder: /images
