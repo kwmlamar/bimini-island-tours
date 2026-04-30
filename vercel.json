@@ -1,8 +1,4 @@
 {
-  "functions": {
-    "api/auth.js": { "runtime": "nodejs20.x" },
-    "api/callback.js": { "runtime": "nodejs20.x" }
-  },
   "headers": [
     {
       "source": "/admin/config.yml",
