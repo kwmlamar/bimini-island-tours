@@ -24,22 +24,21 @@ export default async function handler(req, res) {
         }
 
         // Pass the token back to the CMS window via postMessage
+        const payload = JSON.stringify({ token: access_token, provider: 'github' });
         res.setHeader('Content-Type', 'text/html');
         res.send(`<!DOCTYPE html>
 <html><head><title>Signing in…</title></head>
 <body>
 <script>
 (function () {
+    var payload = ${JSON.stringify(payload)};
     function receive(e) {
-        window.opener.postMessage(
-            'authorization:github:success:' + JSON.stringify({ token: '${access_token}', provider: 'github' }),
-            e.origin
-        );
+        window.opener.postMessage('authorization:github:success:' + payload, e.origin);
     }
     window.addEventListener('message', receive, false);
     window.opener.postMessage('authorizing:github', '*');
 })();
-</script>
+<\/script>
 <p style="font-family:sans-serif;text-align:center;margin-top:4rem;">Signing in, please wait…</p>
 </body></html>`);
 
