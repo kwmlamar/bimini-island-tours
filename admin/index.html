@@ -8,5 +8,99 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'kwmlamar/bimini-island-tours',
+          branch: 'main',
+          auth_type: 'pkce',
+          app_id: 'Ov23lip7UEPbcUUNDYl5'
+        },
+        media_folder: 'images',
+        public_folder: '/images',
+        collections: [
+          {
+            name: 'tours_data',
+            label: 'Tours & Pricing',
+            files: [
+              {
+                label: 'All Tours',
+                name: 'tours',
+                file: '_data/tours.json',
+                fields: [
+                  {
+                    label: 'Categories',
+                    name: 'categories',
+                    widget: 'list',
+                    collapsed: false,
+                    label_singular: 'Category',
+                    fields: [
+                      { label: 'Category ID (do not change)', name: 'id', widget: 'string' },
+                      { label: 'Category Label', name: 'label', widget: 'string' },
+                      {
+                        label: 'Tours',
+                        name: 'tours',
+                        widget: 'list',
+                        collapsed: true,
+                        label_singular: 'Tour',
+                        fields: [
+                          { label: 'Tour ID (do not change)', name: 'id', widget: 'string' },
+                          { label: 'Tour Name', name: 'name', widget: 'string' },
+                          { label: 'Duration (e.g. 2 Hours)', name: 'duration', widget: 'string', required: false },
+                          { label: 'Description', name: 'description', widget: 'text' },
+                          { label: 'Photo', name: 'image', widget: 'image', required: false },
+                          { label: 'Booking Param (do not change)', name: 'booking_param', widget: 'string' },
+                          { label: 'Button Label', name: 'cta_label', widget: 'string', default: 'Check Availability' },
+                          {
+                            label: 'Pricing Rows',
+                            name: 'pricing',
+                            widget: 'list',
+                            label_singular: 'Price',
+                            fields: [
+                              { label: 'Label (e.g. Adults)', name: 'label', widget: 'string' },
+                              { label: 'Price (e.g. $110 / person)', name: 'value', widget: 'string' }
+                            ]
+                          },
+                          {
+                            label: 'Includes List (optional)',
+                            name: 'includes',
+                            widget: 'list',
+                            required: false,
+                            field: { label: 'Item', name: 'item', widget: 'string' }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'site_settings',
+            label: 'Site Settings',
+            files: [
+              {
+                label: 'Contact Info',
+                name: 'contact',
+                file: '_data/site.json',
+                fields: [
+                  { label: 'Primary Phone', name: 'phone_primary', widget: 'string' },
+                  { label: 'Secondary Phone', name: 'phone_secondary', widget: 'string' },
+                  { label: 'Email Address', name: 'email', widget: 'string' },
+                  { label: 'WhatsApp Number (digits only)', name: 'whatsapp_number', widget: 'string' },
+                  { label: 'Address', name: 'address', widget: 'string' },
+                  { label: 'Instagram URL', name: 'instagram_url', widget: 'string' },
+                  { label: 'Facebook URL', name: 'facebook_url', widget: 'string' }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
 </body>
 </html>
