@@ -3,10 +3,522 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex" />
-  <title>Content Manager — Bimini Island Tours</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Tour Editor — Bimini Island Tours</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #0a5ea8;
+      --blue-dark: #084d8a;
+      --red: #cc2200;
+      --green: #1a7a3c;
+      --border: #dde3ea;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #eef2f7;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN ──────────────────────────────────────── */
+    #login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .login-box {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+    .login-logo { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .login-box h1 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .login-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.75rem; }
+    .login-box input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      outline: none;
+      transition: border-color 0.2s;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+    .login-box input:focus { border-color: var(--blue); }
+    .error-msg { color: var(--red); font-size: 0.85rem; margin-bottom: 0.75rem; min-height: 1.2em; }
+
+    /* ── BUTTONS ──────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.1s;
+      text-decoration: none;
+    }
+    .btn:active:not(:disabled) { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .btn-primary { background: var(--blue); color: white; width: 100%; }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.1); }
+    .btn-danger { background: #fee2e2; color: var(--red); font-size: 0.78rem; padding: 0.35rem 0.7rem; border-radius: 6px; }
+    .btn-danger:hover { background: #fecaca; }
+    .btn-outline { background: white; color: var(--blue); border: 2px solid var(--blue); font-size: 0.85rem; padding: 0.5rem 1rem; }
+    .btn-save { background: var(--green); color: white; font-size: 1rem; padding: 0.8rem 2rem; }
+    .btn-save:hover:not(:disabled) { filter: brightness(1.1); }
+
+    /* ── APP SHELL ──────────────────────────────────────── */
+    #app { display: none; }
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .header-left span { font-size: 1.5rem; }
+    header h1 { font-size: 1.1rem; color: var(--blue); line-height: 1.2; }
+    header small { font-size: 0.75rem; color: var(--muted); display: block; }
+    .header-right { display: flex; align-items: center; gap: 0.75rem; }
+
+    /* ── SAVE BAR ──────────────────────────────────────── */
+    #save-bar {
+      display: none;
+      background: #fffbeb;
+      border-bottom: 2px solid #f59e0b;
+      padding: 0.7rem 1.75rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      position: sticky;
+      top: 57px;
+      z-index: 99;
+    }
+    #save-bar.visible { display: flex; }
+    #save-bar p { font-size: 0.88rem; color: #92400e; font-weight: 600; }
+
+    /* ── MAIN CONTENT ──────────────────────────────────── */
+    main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    .category-section {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .category-header {
+      background: #1a3c5e;
+      color: white;
+      padding: 0.9rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── TOUR CARD ──────────────────────────────────────── */
+    .tour-card {
+      border-bottom: 1px solid #f0f3f7;
+      padding: 1.5rem;
+    }
+    .tour-card:last-child { border-bottom: none; }
+    .tour-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .tour-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+    @media (max-width: 560px) { .field-grid { grid-template-columns: 1fr; } }
+    .field-full { grid-column: 1 / -1; }
+
+    .field label {
+      display: block;
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+    .field input, .field textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 2px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafcff;
+    }
+    .field input:focus, .field textarea:focus {
+      border-color: var(--blue);
+      background: white;
+    }
+    .field textarea { min-height: 78px; resize: vertical; line-height: 1.5; }
+
+    /* ── PRICING ──────────────────────────────────────── */
+    .pricing-section { margin-top: 0.25rem; }
+    .pricing-section h4 {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+    .pricing-row input {
+      padding: 0.55rem 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      background: #fafcff;
+      transition: border-color 0.2s;
+    }
+    .pricing-row input:focus { border-color: var(--blue); background: white; }
+    .btn-add-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+      background: none;
+      border: 2px dashed #b3c6e0;
+      color: var(--blue);
+      padding: 0.42rem 0.85rem;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-add-row:hover { background: #ebf2ff; border-color: var(--blue); }
+
+    /* ── TOAST ──────────────────────────────────────── */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: #1a1a1a;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    #toast.success { background: var(--green); }
+    #toast.error { background: var(--red); }
+
+    .loading { text-align: center; padding: 4rem; color: var(--muted); font-size: 1rem; }
+    .spinner { display: inline-block; width: 1.5rem; height: 1.5rem; border: 3px solid #ddd; border-top-color: var(--blue); border-radius: 50%; animation: spin 0.7s linear infinite; margin-bottom: 0.75rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@2.10.192/dist/decap-cms.js"></script>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🌴</div>
+    <h1>Tour Editor</h1>
+    <p>Bimini Island Tours — Content Manager</p>
+    <input type="password" id="pwd-input" placeholder="Enter password" autocomplete="current-password" />
+    <div class="error-msg" id="login-error"></div>
+    <button class="btn btn-primary" id="login-btn" onclick="doLogin()">Sign In</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header>
+    <div class="header-left">
+      <span>🌴</span>
+      <div>
+        <h1>Tour Editor</h1>
+        <small>Bimini Island Tours</small>
+      </div>
+    </div>
+    <div class="header-right">
+      <span id="status-text" style="font-size:0.8rem;color:var(--muted)"></span>
+      <button class="btn btn-outline" onclick="doLogout()">Sign Out</button>
+    </div>
+  </header>
+
+  <div id="save-bar">
+    <p>⚠️ You have unsaved changes</p>
+    <button class="btn btn-save" id="save-btn" onclick="saveChanges()">Save Changes</button>
+  </div>
+
+  <main id="main-content">
+    <div class="loading"><div class="spinner"></div><br>Loading tour data…</div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  let toursData = null;
+  let currentSha  = null;
+  let isDirty     = false;
+  let sessionPwd  = null;
+
+  // ─── AUTH ────────────────────────────────────────────────────────────────
+
+  function doLogin() {
+    const pwd = document.getElementById('pwd-input').value;
+    const err = document.getElementById('login-error');
+    const btn = document.getElementById('login-btn');
+    if (!pwd) return;
+    err.textContent = '';
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+    sessionPwd = pwd;
+
+    loadTours()
+      .then(() => {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+      })
+      .catch(e => {
+        sessionPwd = null;
+        err.textContent = e.message === 'UNAUTHORIZED'
+          ? 'Incorrect password — please try again.'
+          : 'Connection error. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      });
+  }
+
+  document.getElementById('pwd-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  function doLogout() {
+    sessionPwd = null; toursData = null; currentSha = null; isDirty = false;
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('pwd-input').value = '';
+    document.getElementById('login-btn').disabled = false;
+    document.getElementById('login-btn').textContent = 'Sign In';
+    document.getElementById('login-error').textContent = '';
+    document.getElementById('save-bar').classList.remove('visible');
+  }
+
+  // ─── DATA ────────────────────────────────────────────────────────────────
+
+  async function loadTours() {
+    const res = await fetch('/api/cms-read', {
+      headers: { 'x-cms-password': sessionPwd }
+    });
+    if (res.status === 401) throw new Error('UNAUTHORIZED');
+    if (!res.ok) throw new Error('LOAD_FAILED');
+    const data = await res.json();
+    toursData  = data.content;
+    currentSha = data.sha;
+    renderAll();
+    document.getElementById('status-text').textContent = '✓ Loaded';
+  }
+
+  // ─── RENDER ──────────────────────────────────────────────────────────────
+
+  function renderAll() {
+    const main = document.getElementById('main-content');
+    if (!toursData?.categories?.length) {
+      main.innerHTML = '<div class="loading">No tour data found.</div>';
+      return;
+    }
+    main.innerHTML = toursData.categories.map((cat, ci) => `
+      <div class="category-section">
+        <div class="category-header">${h(cat.label)}</div>
+        ${cat.tours.map((tour, ti) => renderTour(tour, ci, ti)).join('')}
+      </div>
+    `).join('');
+  }
+
+  function renderTour(tour, ci, ti) {
+    const pid = `pricing-${ci}-${ti}`;
+    return `
+      <div class="tour-card">
+        <div class="tour-title-bar">
+          <div class="tour-label" id="lbl-${ci}-${ti}">${h(tour.name)}</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Tour Name</label>
+            <input type="text" value="${h(tour.name)}"
+              oninput="set(${ci},${ti},'name',this.value);document.getElementById('lbl-${ci}-${ti}').textContent=this.value" />
+          </div>
+          <div class="field">
+            <label>Duration</label>
+            <input type="text" value="${h(tour.duration||'')}" placeholder="e.g. 2 Hours"
+              oninput="set(${ci},${ti},'duration',this.value)" />
+          </div>
+          <div class="field field-full">
+            <label>Description</label>
+            <textarea oninput="set(${ci},${ti},'description',this.value)">${h(tour.description||'')}</textarea>
+          </div>
+          <div class="field">
+            <label>Button Label</label>
+            <input type="text" value="${h(tour.cta_label||'Check Availability')}"
+              oninput="set(${ci},${ti},'cta_label',this.value)" />
+          </div>
+        </div>
+        <div class="pricing-section">
+          <h4>Pricing</h4>
+          <div id="${pid}">
+            ${(tour.pricing||[]).map((p,pi) => pricingRow(ci,ti,pi,p)).join('')}
+          </div>
+          <button class="btn-add-row" onclick="addPrice(${ci},${ti})">+ Add Row</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function pricingRow(ci, ti, pi, p) {
+    return `
+      <div class="pricing-row" id="pr-${ci}-${ti}-${pi}">
+        <input type="text" placeholder="Label (e.g. Adults)" value="${h(p.label)}"
+          oninput="setPrice(${ci},${ti},${pi},'label',this.value)" />
+        <input type="text" placeholder="Price (e.g. $110 / person)" value="${h(p.value)}"
+          oninput="setPrice(${ci},${ti},${pi},'value',this.value)" />
+        <button class="btn btn-danger" onclick="removePrice(${ci},${ti},${pi})">✕</button>
+      </div>
+    `;
+  }
+
+  function h(s) {
+    return String(s||'')
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ─── MUTATIONS ───────────────────────────────────────────────────────────
+
+  function set(ci, ti, field, val) {
+    toursData.categories[ci].tours[ti][field] = val;
+    markDirty();
+  }
+
+  function setPrice(ci, ti, pi, field, val) {
+    toursData.categories[ci].tours[ti].pricing[pi][field] = val;
+    markDirty();
+  }
+
+  function addPrice(ci, ti) {
+    if (!toursData.categories[ci].tours[ti].pricing) {
+      toursData.categories[ci].tours[ti].pricing = [];
+    }
+    const arr = toursData.categories[ci].tours[ti].pricing;
+    const pi  = arr.length;
+    arr.push({ label: '', value: '' });
+    const container = document.getElementById(`pricing-${ci}-${ti}`);
+    container.insertAdjacentHTML('beforeend', pricingRow(ci, ti, pi, { label:'', value:'' }));
+    markDirty();
+  }
+
+  function removePrice(ci, ti, pi) {
+    toursData.categories[ci].tours[ti].pricing.splice(pi, 1);
+    markDirty();
+    // Re-render just this tour's pricing section
+    const arr = toursData.categories[ci].tours[ti].pricing;
+    const container = document.getElementById(`pricing-${ci}-${ti}`);
+    container.innerHTML = arr.map((p, i) => pricingRow(ci, ti, i, p)).join('');
+  }
+
+  function markDirty() {
+    if (!isDirty) {
+      isDirty = true;
+      document.getElementById('save-bar').classList.add('visible');
+    }
+  }
+
+  // ─── SAVE ────────────────────────────────────────────────────────────────
+
+  async function saveChanges() {
+    const btn = document.getElementById('save-btn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    try {
+      const res = await fetch('/api/cms-save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-cms-password': sessionPwd
+        },
+        body: JSON.stringify({ content: toursData, sha: currentSha })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Save failed');
+      currentSha = data.sha || currentSha;
+      isDirty    = false;
+      document.getElementById('save-bar').classList.remove('visible');
+      showToast('✓ Saved! The site will update in about 1 minute.', 'success');
+    } catch (e) {
+      showToast('Error: ' + e.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Save Changes';
+    }
+  }
+
+  // ─── TOAST ───────────────────────────────────────────────────────────────
+
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className   = 'show ' + (type||'');
+    setTimeout(() => { t.className = ''; }, 4500);
+  }
+</script>
 </body>
 </html>
