@@ -9,9 +9,15 @@
     let data;
     try {
         const res = await fetch('_data/tours.json');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         data = await res.json();
     } catch (e) {
         console.error('Could not load tours data:', e);
+        // Fallback: Show the static content if dynamic fetch fails (e.g. local file access)
+        const staticContainer = document.getElementById('tours-static');
+        if (staticContainer) {
+            staticContainer.style.display = 'block';
+        }
         return;
     }
 
