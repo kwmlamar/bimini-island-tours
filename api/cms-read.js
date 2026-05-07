@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
       'https://api.github.com/repos/kwmlamar/bimini-island-tours/contents/_data/tours.json',
       {
         headers: {
-          Authorization: `token ${token}`,
+          Authorization: `Bearer ${token}`,
           Accept: 'application/vnd.github.v3+json',
           'User-Agent': 'bimini-cms'
         }

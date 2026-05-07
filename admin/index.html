@@ -484,10 +484,10 @@
 
   // ─── SAVE ────────────────────────────────────────────────────────────────
 
-  async function saveChanges() {
+  async function saveChanges(retryAttempt) {
     const btn = document.getElementById('save-btn');
     btn.disabled = true;
-    btn.textContent = 'Saving…';
+    btn.textContent = retryAttempt ? 'Retrying…' : 'Saving…';
     try {
       const res = await fetch('/api/cms-save', {
         method: 'POST',
@@ -498,7 +498,20 @@
         body: JSON.stringify({ content: toursData, sha: currentSha })
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Save failed');
+
+      // Handle SHA conflict — auto-retry with fresh SHA (once)
+      if (res.status === 409 && data.latestSha && !retryAttempt) {
+        currentSha = data.latestSha;
+        return saveChanges(true);
+      }
+
+      if (!res.ok) {
+        const msg = data.error === 'conflict'
+          ? 'Content was changed elsewhere. Please reload the page and re-apply your edits.'
+          : (data.error || 'Save failed');
+        throw new Error(msg);
+      }
+
       currentSha = data.sha || currentSha;
       isDirty    = false;
       document.getElementById('save-bar').classList.remove('visible');
