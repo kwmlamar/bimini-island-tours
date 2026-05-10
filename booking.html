@@ -441,11 +441,29 @@
         }
     }
 
-    dateInput.addEventListener('click', () => dpDropdown.classList.toggle('is-open'));
+    // ── MOBILE DETECTION & ADAPTATION ─────────────────────
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+        dateInput.type = 'date';
+        dateInput.readOnly = false;
+        // Native date inputs use YYYY-MM-DD. We sync this to data-iso on change.
+        dateInput.addEventListener('change', () => {
+            dateInput.dataset.iso = dateInput.value;
+        });
+    }
+
+    function togglePicker(e) {
+        if (isMobile) return; // Use native picker
+        dpDropdown.classList.toggle('is-open');
+    }
+
+    dateInput.addEventListener('click', togglePicker);
     dpPrev.addEventListener('click', () => { dpMonth--; if (dpMonth < 0) { dpMonth = 11; dpYear--; } renderCalendar(); });
     dpNext.addEventListener('click', () => { dpMonth++; if (dpMonth > 11) { dpMonth = 0; dpYear++; } renderCalendar(); });
     document.addEventListener('click', (e) => { if (!dpWrap.contains(e.target)) dpDropdown.classList.remove('is-open'); });
-    renderCalendar();
+    
+    if (!isMobile) renderCalendar();
+
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
