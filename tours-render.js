@@ -88,16 +88,35 @@
                 ${tour.includes.map(item => `<li>${escHtml(item)}</li>`).join('')}
             </ul>` : '';
 
+        const logisticsHtml = tour.logistics ? `
+            <div class="tcard-logistics">
+                <svg class="tcard-logistics-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>${escHtml(tour.logistics)}</span>
+            </div>` : '';
+
+        const inclExclHtml = tour.whats_included && tour.whats_included.length ? `
+            <div class="tcard-incl-excl">
+                <ul class="tcard-includes">
+                    ${tour.whats_included.map(item => `<li><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>${escHtml(item)}</li>`).join('')}
+                </ul>
+                ${tour.whats_not_included && tour.whats_not_included.length ? `
+                <ul class="tcard-excludes">
+                    ${tour.whats_not_included.map(item => `<li><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>${escHtml(item)}</li>`).join('')}
+                </ul>` : ''}
+            </div>` : '';
+
         const isSmall = !!(tour.includes && tour.includes.length);
         const cta     = tour.cta_label || 'Check Availability';
         const href    = `booking.html?tour=${encodeURIComponent(tour.booking_param)}`;
 
         return `
-        <article class="tcard">
+        <article class="tcard" id="${escHtml(tour.id)}">
             ${imgHtml}
             <div class="tcard-body">
                 <h3 class="tcard-title">${escHtml(tour.name)}</h3>
                 <p class="tcard-desc">${escHtml(tour.description)}</p>
+                ${logisticsHtml}
+                ${inclExclHtml}
                 ${pricingHtml}
                 ${includesHtml}
                 <a href="${href}" class="btn-pill btn-pill--dark${isSmall ? ' btn-pill--sm' : ''}">${escHtml(cta)} <span class="pill-circle">&#8599;</span></a>
@@ -122,8 +141,25 @@
         const href      = `booking.html?tour=${encodeURIComponent(tour.booking_param)}`;
         const cta       = tour.cta_label || 'Book This Tour';
 
+        const logisticsHtml = tour.logistics ? `
+            <div class="tcard-logistics">
+                <svg class="tcard-logistics-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>${escHtml(tour.logistics)}</span>
+            </div>` : '';
+
+        const inclExclHtml = tour.whats_included && tour.whats_included.length ? `
+            <div class="tcard-incl-excl">
+                <ul class="tcard-includes">
+                    ${tour.whats_included.map(item => `<li><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>${escHtml(item)}</li>`).join('')}
+                </ul>
+                ${tour.whats_not_included && tour.whats_not_included.length ? `
+                <ul class="tcard-excludes">
+                    ${tour.whats_not_included.map(item => `<li><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>${escHtml(item)}</li>`).join('')}
+                </ul>` : ''}
+            </div>` : '';
+
         return `
-        <article class="tcard-featured">
+        <article class="tcard-featured" id="${escHtml(tour.id)}">
             <div class="tcard-featured-img-wrap">
                 <img src="${tour.image}" alt="${escHtml(tour.name)}" class="tcard-featured-img">
                 <div class="tcard-featured-img-overlay"></div>
@@ -138,6 +174,8 @@
                     ${tour.duration ? `<span class="tcard-badge tcard-badge--lg">${escHtml(tour.duration)}</span>` : ''}
                 </div>
                 <p class="tcard-desc">${escHtml(tour.description)}</p>
+                ${logisticsHtml}
+                ${inclExclHtml}
                 <div class="tcard-featured-prices">
                     <div class="tcard-featured-price-col">${colHtml(col1)}</div>
                     <div class="tcard-featured-price-col">${colHtml(col2)}</div>
