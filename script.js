@@ -386,32 +386,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // revealing the curve, then the footer beneath — as if it was always there.
     if (document.querySelector('.booking-split-page')) {
         const footer = document.querySelector('.bfooter');
-        const OVERHANG = 80; // matches the extra height in CSS
+        const OVERHANG = 80; 
 
         let scrollRoom = 0;
 
         const setScrollRoom = () => {
-            // Park bsplit bottom at ~38% from top when fully scrolled
             scrollRoom = window.innerHeight * 0.62 + OVERHANG;
             document.body.style.paddingBottom = scrollRoom + 'px';
-
-            // Refresh snap after resize
-            if (snapTrigger) snapTrigger.kill();
-            snapTrigger = ScrollTrigger.create({
-                trigger: document.body,
-                start: 'top top',
-                end: () => '+=' + scrollRoom,
-                snap: {
-                    snapTo: [0, 1],      // snap to top or fully-revealed state
-                    duration: { min: 0.4, max: 0.8 },
-                    ease: 'power2.inOut'
-                }
-            });
         };
 
-        let snapTrigger = null;
         setScrollRoom();
         window.addEventListener('resize', setScrollRoom, { passive: true });
     }
+
 
 });
