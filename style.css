@@ -629,7 +629,9 @@ ul   { list-style: none; }
     margin-top: clamp(3rem, 5vw, 4.5rem);
 }
 .highlights-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
     gap: 1.5rem;
     align-items: stretch;
 }
