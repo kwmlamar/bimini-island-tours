@@ -3344,5 +3344,25 @@ body.booking-split-page {
     }
 }
 
+/* ============================================================
+   P3-6 · LOGO POLISH — shrink and soften colors on mobile
+   Prevents the "too bright" neon look and saves vertical space.
+   ============================================================ */
+@media (max-width: 480px) {
+    .nav-logo {
+        height: 34px !important;
+    }
+    .bfooter-logo {
+        height: 70px !important;
+    }
+    /* Mute the color: Use a deeper, more professional navy-teal 
+       instead of the neon aqua filter. */
+    #navbar.scrolled .nav-logo,
+    .bfooter-logo {
+        filter: brightness(0) saturate(100%) invert(10%) sepia(15%) saturate(2500%) hue-rotate(185deg) brightness(95%) contrast(95%) !important;
+    }
+}
+
+
 
 
