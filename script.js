@@ -382,8 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // hidden below the fold on load. Scrolling lifts the bsplit, first
     // revealing the curve, then the footer beneath — as if it was always there.
     if (document.querySelector('.booking-split-page')) {
-        const footer = document.querySelector('.bfooter');
-        const OVERHANG = 80; 
+        const OVERHANG = 80;
 
         let scrollRoom = 0;
 
@@ -396,5 +395,16 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', setScrollRoom, { passive: true });
     }
 
+    // ── CTA VIDEO — play once on scroll into view ────────────
+    const ctaVideo = document.querySelector('.cta-video-bg');
+    if (ctaVideo) {
+        const observer = new IntersectionObserver(([entry], obs) => {
+            if (entry.isIntersecting) {
+                ctaVideo.play();
+                obs.disconnect();
+            }
+        }, { threshold: 0.3 });
+        observer.observe(ctaVideo.closest('.cta-section'));
+    }
 
 });
