@@ -220,14 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: { trigger: '.story-container', start: 'top 78%', once: true }
     });
 
-    // Highlight items — stagger up
-    ScrollTrigger.batch('.highlight-item', {
-        onEnter: (els) => gsap.from(els, {
-            y: 36, opacity: 0,
-            stagger: 0.1, duration: 0.8, ease: 'power2.out'
-        }),
-        start: 'top 86%',
-        once: true
+    // Highlight items — no stagger, same fix as tour cards (stagger breaks row alignment)
+    gsap.from('.highlight-item', {
+        y: 36, opacity: 0,
+        duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: '.highlights-grid', start: 'top 86%', once: true }
     });
 
 
