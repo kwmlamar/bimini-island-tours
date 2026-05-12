@@ -13,16 +13,36 @@
           "description": "Get ready to discover the very best of Bimini in one unforgettable adventure that blends history, culture, natural beauty, island flavors, and breathtaking scenery into a seamless guided experience across both North and South Bimini.",
           "description_extended": "Your journey begins in colorful Alice Town, where the vibrant spirit of island life comes alive through charming streets, local culture, and authentic Bahamian hospitality. Cruise past stunning white-sand beaches and crystal-clear turquoise waters while uncovering the stories, legends, and rich heritage that make Bimini unlike anywhere else in the world.\n\nAlong the way, guests may experience iconic highlights such as the famous Dolphin House Museum, Heroes Park, the Bimini Craft Centre, scenic marinas lined with luxury yachts, and panoramic coastal views stretching across the Atlantic. Hear fascinating stories surrounding Ernest Hemingway’s connection to Bimini and the mystery of the legendary Bimini Road, often linked to the Lost City of Atlantis.\n\nThe adventure continues with a scenic ferry ride to South Bimini, where guests will experience a quieter and more untouched side of the island. Discover breathtaking shorelines, Shell Beach, the legendary Fountain of Youth area associated with Ponce de León, and the world-renowned Bimini Biological Field Station, known globally for marine research and shark conservation.\n\nThroughout the experience, guests enjoy authentic island storytelling, local food sampling including conch and traditional Bimini bread, scenic photo opportunities, and the warm hospitality that defines the Bahamian experience.\n\nFrom hidden gems and cultural landmarks to unforgettable ocean views and island traditions, every moment of the Combination Tour is designed to immerse guests in the true essence of Bimini — all in one extraordinary experience.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All site admissions listed in the tour"],
-          "whats_not_included": ["Gratuity (appreciated)", "Personal purchases at stops", "Meals and beverages"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All site admissions listed in the tour"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Personal purchases at stops",
+            "Meals and beverages"
+          ],
           "featured": false,
           "booking_param": "Full Bimini Experience",
           "cta_label": "Check Availability",
           "pricing": [
-            { "label": "Adults", "value": "$199 / person" },
-            { "label": "Children (6–11)", "value": "$150 / person" },
-            { "label": "Private (2 maximum)", "value": "$475 total" },
-            { "label": "Private Group (min 4)", "value": "$225 / person" }
+            {
+              "label": "Adults",
+              "value": "$199 / person"
+            },
+            {
+              "label": "Children (6–11)",
+              "value": "$150 / person"
+            },
+            {
+              "label": "Private (2 maximum)",
+              "value": "$475 total"
+            },
+            {
+              "label": "Private Group (min 4)",
+              "value": "$225 / person"
+            }
           ]
         },
         {
@@ -34,16 +54,36 @@
           "image_position": "center center",
           "description": "South Bimini moves at a different pace — quieter, older, deeper. This two-hour tour takes you to the legendary Fountain of Youth, the pristine sands of Shell Beach, and the world-renowned Bimini Biological Field Station, home to one of the longest-running shark research programs on the planet. Your guide narrates the history and folklore of an island that has drawn explorers and adventurers for centuries.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All site admissions listed in the tour"],
-          "whats_not_included": ["Gratuity (appreciated)", "Personal purchases at stops", "Meals and beverages"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All site admissions listed in the tour"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Personal purchases at stops",
+            "Meals and beverages"
+          ],
           "featured": false,
           "booking_param": "South Bimini Tour",
           "cta_label": "Check Availability",
           "pricing": [
-            { "label": "Adults", "value": "$150 / person" },
-            { "label": "Children (6–11)", "value": "$110 / person" },
-            { "label": "Private (2 maximum)", "value": "$425 total" },
-            { "label": "Private Group (min 4)", "value": "$170 / person" }
+            {
+              "label": "Adults",
+              "value": "$150 / person"
+            },
+            {
+              "label": "Children (6–11)",
+              "value": "$110 / person"
+            },
+            {
+              "label": "Private (2 maximum)",
+              "value": "$425 total"
+            },
+            {
+              "label": "Private Group (min 4)",
+              "value": "$170 / person"
+            }
           ]
         },
         {
@@ -57,38 +97,77 @@
           "description": "The most popular tour for good reason — this is Bimini’s living story brought to life. Spend two unforgettable hours exploring the heart of North Bimini on a guided cultural journey through historic landmarks, local traditions, and the island’s most treasured sites.",
           "description_extended": "Travel through colorful communities and scenic coastal roads while discovering the stories, people, and moments that shaped Bimini into one of the Bahamas’ most unique destinations. Experience a live conch demonstration, sample traditional Bimini bread, and hear fascinating tales connected to island life, local legends, Ernest Hemingway, and Bimini’s rich maritime heritage.\n\nFrom hidden gems and cultural landmarks to breathtaking ocean views and authentic Bahamian hospitality, every stop offers a deeper connection to the soul of the island.\n\nRelaxed, immersive, and genuinely memorable — this is Bimini through the eyes of the people who call it home.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All site admissions listed in the tour"],
-          "whats_not_included": ["Gratuity (appreciated)", "Personal purchases at stops", "Meals and beverages"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All site admissions listed in the tour"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Personal purchases at stops",
+            "Meals and beverages"
+          ],
           "featured": true,
           "featured_label": "Most Popular",
           "booking_param": "North Bimini Historical Tour",
           "cta_label": "Book This Tour",
           "pricing": [
-            { "label": "Adults", "value": "$110 / person" },
-            { "label": "Children (6–11)", "value": "$75 / person" },
-            { "label": "Private (2 maximum)", "value": "$375 total" },
-            { "label": "Private Group (min 4)", "value": "$150 / person" }
+            {
+              "label": "Adults",
+              "value": "$110 / person"
+            },
+            {
+              "label": "Children (6–11)",
+              "value": "$75 / person"
+            },
+            {
+              "label": "Private (2 maximum)",
+              "value": "$375 total"
+            },
+            {
+              "label": "Private Group (min 4)",
+              "value": "$150 / person"
+            }
           ]
         },
         {
           "id": "eat-like-a-local",
-          "name": "Eat Like a Local",
+          "name": "Eat Like a Local: Bimini Food Experience Tour",
           "duration": "3 Hours",
           "image": "images/eat.jpg",
           "image_position": "center 20%",
           "description": "This is Bimini beyond the postcard. Spend three unforgettable hours tasting your way through the island’s culinary soul — where every flavor tells a story and every stop offers a deeper connection to authentic Bahamian culture.",
           "description_extended": "Enjoy fresh conch prepared the Bahamian way, warm island bread straight from the source, tropical island drinks, and local flavors that simply cannot be replicated anywhere else. From hidden local favorites to beloved island staples, this experience takes you beyond the tourist areas and into the real heart of Bimini.\n\nYour guide is a Bimini native who knows exactly where the locals eat, gathering places filled with personality, tradition, and generations of history. Along the way, hear stories about island life, fishing culture, Bahamian traditions, and the role food plays in bringing the community together.\n\nNo tourist traps. No shortcuts. Just authentic flavors, genuine hospitality, and the true taste of Bimini.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All food and tastings listed in the experience"],
-          "whats_not_included": ["Gratuity (appreciated)", "Additional beverages beyond what is included"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All food and tastings listed in the experience"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Additional beverages beyond what is included"
+          ],
           "featured": false,
           "booking_param": "Eat Like a Local",
           "cta_label": "Check Availability",
           "pricing": [
-            { "label": "Adults", "value": "$175 / person" },
-            { "label": "Children (6–11)", "value": "$130 / person" },
-            { "label": "Private (2 maximum)", "value": "$450 total" },
-            { "label": "Private Group (min 4)", "value": "$190 / person" }
+            {
+              "label": "Adults",
+              "value": "$175 / person"
+            },
+            {
+              "label": "Children (6–11)",
+              "value": "$130 / person"
+            },
+            {
+              "label": "Private (2 maximum)",
+              "value": "$450 total"
+            },
+            {
+              "label": "Private Group (min 4)",
+              "value": "$190 / person"
+            }
           ]
         },
         {
@@ -100,16 +179,36 @@
           "description": "Get ready to experience Bimini like never before—without ever leaving your seat. This exhilarating, seamlessly guided tour sweeps you across the island’s most iconic sights, offering a vibrant snapshot of its charm, history, and natural beauty in one unforgettable journey.",
           "description_extended": "Glide past powdery white beaches kissed by turquoise waters, where the Atlantic sparkles in every shade of blue imaginable. Soak in panoramic views of the legendary Bimini Road, steeped in mystery and intrigue, and catch glimpses of the storied shoreline once frequented by Ernest Hemingway himself. As you cruise through Alice Town, feel the heartbeat of island life—colorful buildings, lively streets, and authentic Bahamian spirit all unfolding before you.\n\nAlong the way, discover historic landmarks, picturesque marinas dotted with sleek yachts, and serene mangrove habitats teeming with life. Every turn reveals another postcard-worthy scene, every moment a new perspective on this tropical haven.\n\nNo stops, no interruptions—just pure, immersive sightseeing in a smooth, continuous ride. Perfect for capturing the essence of Bimini in a fun, relaxed, and visually stunning experience.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All site admissions listed in the tour"],
-          "whats_not_included": ["Gratuity (appreciated)", "Personal purchases at stops", "Meals and beverages"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All site admissions listed in the tour"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Personal purchases at stops",
+            "Meals and beverages"
+          ],
           "featured": false,
           "booking_param": "Bimini Sit-Low Sightseeing",
           "cta_label": "Check Availability",
           "pricing": [
-            { "label": "Adults", "value": "$60 / person" },
-            { "label": "Children (6–11)", "value": "$30 / person" },
-            { "label": "Private (2 maximum)", "value": "$150 total" },
-            { "label": "Private Group (min 4)", "value": "$65 / person" }
+            {
+              "label": "Adults",
+              "value": "$60 / person"
+            },
+            {
+              "label": "Children (6–11)",
+              "value": "$30 / person"
+            },
+            {
+              "label": "Private (2 maximum)",
+              "value": "$150 total"
+            },
+            {
+              "label": "Private Group (min 4)",
+              "value": "$65 / person"
+            }
           ]
         }
       ]
@@ -126,14 +225,28 @@
           "image_position": "center center",
           "description": "Two hours on North Bimini the way locals move — by golf cart. Cover more ground, stop at the highlights, and hear the kind of local commentary no guidebook has ever captured. A certified guide leads the way; you just enjoy the ride.",
           "logistics": "We meet all guests at the Resorts World Bimini tram stop — direct dock access is restricted at the port. The tram is complimentary and runs continuously between the ship and the island. Royal Caribbean excursion guests board first, so allow 15–20 minutes from disembarkation to arrival. Your guide will be there when you land.",
-          "whats_included": ["Certified local guide", "Island transportation between stops", "All site admissions listed in the tour"],
-          "whats_not_included": ["Gratuity (appreciated)", "Personal purchases at stops", "Meals and beverages"],
+          "whats_included": [
+            "Certified local guide",
+            "Island transportation between stops",
+            "All site admissions listed in the tour"
+          ],
+          "whats_not_included": [
+            "Gratuity (appreciated)",
+            "Personal purchases at stops",
+            "Meals and beverages"
+          ],
           "featured": false,
           "booking_param": "Golf Cart Guided Tour",
           "cta_label": "Check Availability",
           "pricing": [
-            { "label": "Fully Guided Tour", "value": "Starting at $350" },
-            { "label": "Bimini Orientation (1 hr)", "value": "Starting at $199" }
+            {
+              "label": "Fully Guided Tour",
+              "value": "Starting at $350"
+            },
+            {
+              "label": "Bimini Orientation (1 hr)",
+              "value": "Starting at $199"
+            }
           ]
         }
       ]
@@ -153,7 +266,10 @@
           "booking_param": "Private VIP Custom Tour",
           "cta_label": "Inquire Now",
           "pricing": [
-            { "label": "Private / Custom", "value": "Upon request" }
+            {
+              "label": "Private / Custom",
+              "value": "Upon request"
+            }
           ]
         },
         {
@@ -167,7 +283,10 @@
           "booking_param": "Bimini Beach Experience",
           "cta_label": "Inquire Now",
           "pricing": [
-            { "label": "Beach Experience", "value": "Upon request" }
+            {
+              "label": "Beach Experience",
+              "value": "Upon request"
+            }
           ]
         },
         {
@@ -181,7 +300,10 @@
           "booking_param": "Professional Partner / DMC",
           "cta_label": "Inquire Now",
           "pricing": [
-            { "label": "10+ Persons", "value": "Custom pricing" }
+            {
+              "label": "10+ Persons",
+              "value": "Custom pricing"
+            }
           ]
         }
       ]
@@ -200,7 +322,11 @@
           "featured": false,
           "booking_param": "Transportation / VIP Service",
           "cta_label": "Request Transport",
-          "includes": ["Island-wide coverage", "Group coordination", "Reliable scheduling"],
+          "includes": [
+            "Island-wide coverage",
+            "Group coordination",
+            "Reliable scheduling"
+          ],
           "pricing": []
         },
         {
@@ -213,7 +339,11 @@
           "featured": false,
           "booking_param": "Transportation / VIP Service",
           "cta_label": "Book VIP Service",
-          "includes": ["Personalized greeting", "Priority pickup", "Luggage assistance"],
+          "includes": [
+            "Personalized greeting",
+            "Priority pickup",
+            "Luggage assistance"
+          ],
           "pricing": []
         },
         {
@@ -226,7 +356,11 @@
           "featured": false,
           "booking_param": "Professional Partner / DMC",
           "cta_label": "Inquire for DMC",
-          "includes": ["Group logistics coordination", "Event planning support", "On-island arrangements"],
+          "includes": [
+            "Group logistics coordination",
+            "Event planning support",
+            "On-island arrangements"
+          ],
           "pricing": []
         },
         {
@@ -239,7 +373,11 @@
           "featured": false,
           "booking_param": "Professional Partner / DMC",
           "cta_label": "Partner With Us",
-          "includes": ["Customized tour packages", "Group handling specialists", "Seamless shore excursions"],
+          "includes": [
+            "Customized tour packages",
+            "Group handling specialists",
+            "Seamless shore excursions"
+          ],
           "pricing": []
         }
       ]
