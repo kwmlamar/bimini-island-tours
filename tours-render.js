@@ -24,20 +24,23 @@
     let html = '';
 
     data.categories.forEach(category => {
+        const visibleTours = category.tours.filter(t => !t.hide_on_tours_page);
+        if (visibleTours.length === 0) return;
+
         html += `
         <div class="cat-divider">
             <span class="cat-divider-title">${category.label}</span>
         </div>`;
 
         if (category.id === 'core') {
-            html += renderCoreCategory(category.tours);
+            html += renderCoreCategory(visibleTours);
         } else if (category.id === 'specialty') {
             html += `<div class="tcard-grid tcard-grid--3col">`;
-            category.tours.forEach(tour => { html += renderTcard(tour); });
+            visibleTours.forEach(tour => { html += renderTcard(tour); });
             html += `</div>`;
         } else {
             html += `<div class="tcard-grid tcard-grid--2col">`;
-            category.tours.forEach(tour => { html += renderTcard(tour); });
+            visibleTours.forEach(tour => { html += renderTcard(tour); });
             html += `</div>`;
         }
     });
@@ -114,7 +117,8 @@
             ${imgHtml}
             <div class="tcard-body">
                 <h3 class="tcard-title">${escHtml(tour.name)}</h3>
-                <p class="tcard-desc">${escHtml(tour.description)}</p>
+                <p class="tcard-desc">${escHtml(tour.description).replace(/\n/g, '<br>')}</p>
+                ${tour.description_extended ? `<details class="tcard-desc-details"><summary>Read More</summary><p class="tcard-desc" style="margin-top:0.5rem;">${escHtml(tour.description_extended).replace(/\n/g, '<br>')}</p></details>` : ''}
                 ${logisticsHtml}
                 ${inclExclHtml}
                 ${pricingHtml}
@@ -173,7 +177,8 @@
                     </div>
                     ${tour.duration ? `<span class="tcard-badge tcard-badge--lg">${escHtml(tour.duration)}</span>` : ''}
                 </div>
-                <p class="tcard-desc">${escHtml(tour.description)}</p>
+                <p class="tcard-desc">${escHtml(tour.description).replace(/\n/g, '<br>')}</p>
+                ${tour.description_extended ? `<details class="tcard-desc-details"><summary>Read More</summary><p class="tcard-desc" style="margin-top:0.5rem;">${escHtml(tour.description_extended).replace(/\n/g, '<br>')}</p></details>` : ''}
                 ${logisticsHtml}
                 ${inclExclHtml}
                 <div class="tcard-featured-prices">
