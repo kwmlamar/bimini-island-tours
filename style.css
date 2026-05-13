@@ -3140,6 +3140,19 @@ body.booking-split-page {
     color: var(--navy);
     margin-bottom: 1.5rem;
 }
+.cancel-policy-subheading {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 2.5rem 0 1rem;
+}
+.cancel-policy-text {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
 .cancel-policy-list {
     list-style: none;
     display: flex;

@@ -192,6 +192,7 @@
       background: white;
     }
     .field textarea { min-height: 78px; resize: vertical; line-height: 1.5; }
+    .field textarea.tall { min-height: 140px; }
 
     /* ── PRICING ──────────────────────────────────────── */
     .pricing-section { margin-top: 0.25rem; }
@@ -407,6 +408,10 @@
           <div class="field field-full">
             <label>Description</label>
             <textarea oninput="set(${ci},${ti},'description',this.value)">${h(tour.description||'')}</textarea>
+          </div>
+          <div class="field field-full">
+            <label>Read More (Extended Description)</label>
+            <textarea class="tall" placeholder="Continuation of the description shown when the user expands 'Read More'…" oninput="set(${ci},${ti},'description_extended',this.value)">${h(tour.description_extended||'')}</textarea>
           </div>
           <div class="field">
             <label>Button Label</label>
