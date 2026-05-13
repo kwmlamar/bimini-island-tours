@@ -32,7 +32,7 @@
             <span class="cat-divider-title">${category.label}</span>
         </div>`;
 
-        if (category.id === 'core') {
+        if (category.id === 'core' || category.id === 'golf_cart') {
             html += renderCoreCategory(visibleTours);
         } else if (category.id === 'specialty') {
             html += `<div class="tcard-grid tcard-grid--3col">`;

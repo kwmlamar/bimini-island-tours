@@ -224,7 +224,7 @@
           "whats_not_included": [
             "Personal purchases at stops"
           ],
-          "featured": false,
+          "featured": true,
           "booking_param": "Golf Cart Guided Tour",
           "cta_label": "Check Availability",
           "pricing": [
