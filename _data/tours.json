@@ -101,7 +101,7 @@
           "whats_not_included": [
             "Personal purchases at stops"
           ],
-          "featured": true,
+          "featured": false,
           "featured_label": "Most Popular",
           "booking_param": "North Bimini Historical Tour",
           "cta_label": "Book This Tour",
