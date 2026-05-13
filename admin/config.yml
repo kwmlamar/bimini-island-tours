@@ -36,7 +36,10 @@ collections:
                   - { label: "Tour Name", name: name, widget: string }
                   - { label: "Duration (e.g. 2 Hours)", name: duration, widget: string, required: false }
                   - { label: "Description", name: description, widget: text }
+                  - { label: "Extended Description", name: description_extended, widget: markdown, required: false }
+                  - { label: "Logistics", name: logistics, widget: text, required: false }
                   - { label: "Photo", name: image, widget: image, required: false }
+                  - { label: "Image Position (e.g. center 38%)", name: image_position, widget: string, required: false }
                   - { label: "Booking Param (do not change)", name: booking_param, widget: string }
                   - { label: "Button Label", name: cta_label, widget: string, default: "Check Availability" }
                   - label: Pricing Rows
@@ -46,11 +49,17 @@ collections:
                     fields:
                       - { label: "Label (e.g. Adults)", name: label, widget: string }
                       - { label: "Price (e.g. $110 / person)", name: value, widget: string }
-                  - label: "Includes List (optional)"
-                    name: includes
+                  - label: "What's Included"
+                    name: whats_included
                     widget: list
                     required: false
-                    field: { label: Item, name: item, widget: string }
+                    field: { label: Item, widget: string }
+                  - label: "What's Not Included"
+                    name: whats_not_included
+                    widget: list
+                    required: false
+                    field: { label: Item, widget: string }
+                  - { label: "Featured", name: featured, widget: boolean, required: false, default: false }
 
   # ── Site Settings ─────────────────────────────────────────────
   - name: site_settings
