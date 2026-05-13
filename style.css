@@ -1827,6 +1827,7 @@ body.inner-page .btn-pill--ghost:hover {
     z-index: 2;
 }
 .tcard-badge--lg {
+    position: relative; top: auto; left: auto;
     font-size: 0.8rem; padding: 0.5rem 1.1rem;
     background: rgba(255,255,255,0.95);
     color: var(--navy);
