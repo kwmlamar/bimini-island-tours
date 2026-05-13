@@ -42,7 +42,7 @@
 
 /* ── RESET ──────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 body {
     font-family: var(--font-body);
     font-size: 1rem;
@@ -303,8 +303,7 @@ ul   { list-style: none; }
     transition: filter 0.4s;
 }
 #navbar.scrolled .nav-logo {
-    /* Colorize logo to --aqua #00B8C8 */
-    filter: brightness(0) invert(49%) sepia(90%) saturate(1908%) hue-rotate(155deg) brightness(97%) contrast(102%);
+    filter: none;
 }
 
 .nav-links {
