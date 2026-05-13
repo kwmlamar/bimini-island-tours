@@ -51,20 +51,27 @@
     function renderCoreCategory(tours) {
         const featured  = tours.find(t => t.featured);
         const regular   = tours.filter(t => !t.featured);
-        const firstPair = regular.slice(0, 2);
-        const restPair  = regular.slice(2);
         let out = '';
 
-        if (firstPair.length) {
+        if (!featured) {
+            // Render all together in one grid
             out += `<div class="tcard-grid tcard-grid--2col">`;
-            firstPair.forEach(t => { out += renderTcard(t); });
+            regular.forEach(t => { out += renderTcard(t); });
             out += `</div>`;
-        }
-        if (featured) out += renderFeaturedTcard(featured);
-        if (restPair.length) {
-            out += `<div class="tcard-grid tcard-grid--2col">`;
-            restPair.forEach(t => { out += renderTcard(t); });
-            out += `</div>`;
+        } else {
+            const firstPair = regular.slice(0, 2);
+            const restPair  = regular.slice(2);
+            if (firstPair.length) {
+                out += `<div class="tcard-grid tcard-grid--2col">`;
+                firstPair.forEach(t => { out += renderTcard(t); });
+                out += `</div>`;
+            }
+            out += renderFeaturedTcard(featured);
+            if (restPair.length) {
+                out += `<div class="tcard-grid tcard-grid--2col">`;
+                restPair.forEach(t => { out += renderTcard(t); });
+                out += `</div>`;
+            }
         }
         return out;
     }
