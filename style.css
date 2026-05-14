@@ -1361,7 +1361,8 @@ ul   { list-style: none; }
 .meetpoint-map {
     display: block;
     width: 100%;
-    height: auto;
+    height: 420px;
+    border: 0;
 }
 @media (max-width: 720px) {
     .meetpoint-inner {
