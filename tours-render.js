@@ -124,7 +124,7 @@
             ${imgHtml}
             <div class="tcard-body">
                 <h3 class="tcard-title">${escHtml(tour.name)}</h3>
-                <p class="tcard-desc">${escHtml(tour.description).replace(/\n/g, '<br>')}</p>
+                <p class="tcard-desc">${(tour.description_html || escHtml(tour.description)).replace(/\n/g, '<br>')}</p>
                 ${(tour.description_extended_html || tour.description_extended) ? `<details class="tcard-desc-details"><summary>Read More</summary><p class="tcard-desc" style="margin-top:0.5rem;">${(tour.description_extended_html || escHtml(tour.description_extended)).replace(/\n/g, '<br>')}</p></details>` : ''}
                 ${logisticsHtml}
                 ${inclExclHtml}
@@ -184,7 +184,7 @@
                     </div>
                     ${tour.duration ? `<span class="tcard-badge tcard-badge--lg">${escHtml(tour.duration)}</span>` : ''}
                 </div>
-                <p class="tcard-desc">${escHtml(tour.description).replace(/\n/g, '<br>')}</p>
+                <p class="tcard-desc">${(tour.description_html || escHtml(tour.description)).replace(/\n/g, '<br>')}</p>
                 ${(tour.description_extended_html || tour.description_extended) ? `<details class="tcard-desc-details"><summary>Read More</summary><p class="tcard-desc" style="margin-top:0.5rem;">${(tour.description_extended_html || escHtml(tour.description_extended)).replace(/\n/g, '<br>')}</p></details>` : ''}
                 ${logisticsHtml}
                 ${inclExclHtml}
