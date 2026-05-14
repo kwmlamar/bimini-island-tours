@@ -1801,6 +1801,12 @@ body.inner-page .btn-pill--ghost:hover {
     font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7;
     color: var(--text-mid); margin-bottom: 1.25rem;
 }
+.tcard-desc a {
+    color: #1a6fb5; text-decoration: underline;
+}
+.tcard-desc a:hover {
+    color: #145a96;
+}
 .tcard-prices {
     border-top: 1px solid rgba(10,22,40,0.06);
     padding-top: 1rem;
